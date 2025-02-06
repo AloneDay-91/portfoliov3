@@ -1,0 +1,11 @@
+{
+	"$schema": "https://unpkg.com/jsrepo@1.32.1/schemas/project-config.json",
+	"repos": [
+		"https://reactbits.dev/ts/tailwind"
+	],
+	"includeTests": false,
+	"watermark": true,
+	"paths": {
+		"*": "./src/components/ui"
+	}
+}

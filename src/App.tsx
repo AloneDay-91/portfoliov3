@@ -5,12 +5,14 @@ import {Button} from "@/components/ui/button.tsx";
 import {About} from "@/components/About.tsx";
 import {Skills} from "@/components/Skills.tsx";
 import {Spotlight} from "@/components/ui/spotlight-new.tsx";
+import {DivideTitle} from "@/components/DivideTitle.tsx";
+import {XP} from "@/components/XP.tsx";
 
 export default function App() {
     // @ts-ignore
     return (
         <>
-            <div className="relative h-screen overflow-hidden">
+            <div className="relative h-screen">
                 {/* Spotlight en arrière-plan */}
                 <div className="absolute inset-0 -z-1 w-full h-full">
                     <Spotlight />
@@ -36,7 +38,7 @@ export default function App() {
                                     <ThemeToggle />
                                 </Button>
                                 <Button variant='default' asChild>
-                                    <a href="public/CV_Elouan_Bruzek.pdf" target="_blank">
+                                    <a href="/CV_Elouan_Bruzek.pdf" target="_blank">
                                         Télécharger mon CV
                                     </a>
                                 </Button>
@@ -46,6 +48,9 @@ export default function App() {
                 </div>
 
                 <About />
+                <DivideTitle title="Formations"/>
+                <XP/>
+                <DivideTitle title="Compétences"/>
                 <Skills />
             </div>
 

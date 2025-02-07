@@ -1,4 +1,6 @@
 import {TextAnimate} from "@/components/text-animate.tsx";
+import RotatingText from "@/components/ui/TextAnimations/RotatingText/RotatingText.tsx";
+import { WordRotate } from "./magicui/word-rotate";
 
 export function About(){
     return (
@@ -8,7 +10,7 @@ export function About(){
                     <div className="flex items-center justify-start">
                         <div className="flex items-center gap-8 w-3/5">
                             <div>
-                                <img className='rounded-xl' src="public/photoprofile.jpeg" alt=""/>
+                                <img className='rounded-xl' src="/photoprofile.jpeg" alt=""/>
                             </div>
                             <div className='flex flex-col'>
                                 <h1 className="text-6xl font-medium">
@@ -54,12 +56,9 @@ export function About(){
                         </div>
                         <div className="w-2/5">
                             <p className="text-lg text-muted-foreground">
-                                Je suis un développeur web fullstack passionné par les nouvelles technologies et les
-                                défis techniques.
-                                J'ai commencé à apprendre le développement web il y a 3 ans et je suis maintenant
-                                capable de créer des applications web de A à Z.
-                                J'ai une bonne connaissance des langages de programmation tels que JavaScript, TypeScript, Python, Java et C#.
-                                Je suis également à l'aise avec les frameworks et bibliothèques tels que React, Next.js, Express.js, Spring Boot et .NET.
+                                Passionné par le web et le design interactif, je suis en deuxième année de BUT MMI à Troyes.
+                                <div className='inline-flex overflow-hidden px-2'><p><WordRotate className="text-lg font-bold text-black dark:text-white" words={['Dynamique', 'Curieux', 'Rigoureux', 'Serieux']}/></p></div>
+                                et toujours en quête d'apprentissage, je m'investis dans des projets personnels et collabore sur diverses initiatives pour affiner mes compétences techniques et créatives. Je suis actuellement à la recherche d'un stage d'une durée minimale de 10 semaines
                             </p>
                         </div>
                     </div>

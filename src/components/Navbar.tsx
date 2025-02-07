@@ -61,7 +61,14 @@ export function Navbar() {
                     </a>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>A propos</NavigationMenuTrigger>
+                    <a href="/">
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Accueil
+                        </NavigationMenuLink>
+                    </a>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger>À propos</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
@@ -71,7 +78,7 @@ export function Navbar() {
                                         href="/"
                                     >
                                         <div className="mb-2 mt-4 text-lg font-medium">
-                                            A propos
+                                            À propos
                                         </div>
                                         <p className="text-sm leading-tight text-muted-foreground">
                                             Découvrez mon parcours, mes compétences et mes projets.
@@ -79,20 +86,20 @@ export function Navbar() {
                                     </a>
                                 </NavigationMenuLink>
                             </li>
-                            <ListItem href="/docs" title="Introduction">
-                                Re-usable components built using Radix UI and Tailwind CSS.
+                            <ListItem href="/" title="Compétences">
+                                Découvrez mes compétences.
                             </ListItem>
-                            <ListItem href="/docs/installation" title="Installation">
-                                How to install dependencies and structure your app.
+                            <ListItem href="/" title="Projets">
+                                Découvrez mes projets.
                             </ListItem>
-                            <ListItem href="/docs/primitives/typography" title="Typography">
-                                Styles for headings, paragraphs, lists...etc
+                            <ListItem href="/" title="Contact">
+                                Contactez-moi.
                             </ListItem>
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Mes outils</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                             {components.map((component) => (
@@ -106,13 +113,6 @@ export function Navbar() {
                             ))}
                         </ul>
                     </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <a href="/docs">
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Documentation
-                        </NavigationMenuLink>
-                    </a>
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

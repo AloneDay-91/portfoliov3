@@ -1,18 +1,17 @@
 import {TextAnimate} from "@/components/text-animate.tsx";
-import RotatingText from "@/components/ui/TextAnimations/RotatingText/RotatingText.tsx";
 import { WordRotate } from "./magicui/word-rotate";
 
 export function About(){
     return (
-        <div className="border-grid flex flex-1 flex-col items-center">
+        <div className="border-grid flex flex-1 flex-col items-center" id="#about">
             <div className="border-grid sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                 <section className="max-w-screen-2xl mx-auto border-l border-r w-full py-12 px-12 gap-8">
-                    <div className="flex items-center justify-start">
-                        <div className="flex items-center gap-8 w-3/5">
+                    <div className="flex flex-col md:flex-row items-center justify-start">
+                        <div className="flex flex-col md:flex-row items-center gap-8 w-full md:w-3/5">
                             <div>
                                 <img className='rounded-xl' src="/photoprofile.jpeg" alt=""/>
                             </div>
-                            <div className='flex flex-col'>
+                            <div className='flex flex-col md:justify-start justify-center items-center md:items-start'>
                                 <h1 className="text-6xl font-medium">
                                     <TextAnimate animation="blurInUp" by="character" duration={0.3}>
                                         Elouan Bruzek
@@ -54,7 +53,7 @@ export function About(){
                                 </button>
                             </div>
                         </div>
-                        <div className="w-2/5">
+                        <div className="w-full text-center md:text-left md:w-2/5">
                             <p className="text-lg text-muted-foreground">
                                 Passionné par le web et le design interactif, je suis en deuxième année de BUT MMI à Troyes.
                                 <div className='inline-flex overflow-hidden px-2'><p><WordRotate className="text-lg font-bold text-black dark:text-white" words={['Dynamique', 'Curieux', 'Rigoureux', 'Serieux']}/></p></div>

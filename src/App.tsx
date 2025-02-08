@@ -7,6 +7,9 @@ import {Skills} from "@/components/Skills.tsx";
 import {Spotlight} from "@/components/ui/spotlight-new.tsx";
 import {DivideTitle} from "@/components/DivideTitle.tsx";
 import {XP} from "@/components/XP.tsx";
+import {XPPRO} from "@/components/XPPRO.tsx";
+import {Projets} from "@/components/projets.tsx";
+import {Contact} from "@/components/Contact.tsx";
 
 export default function App() {
     // @ts-ignore
@@ -25,12 +28,12 @@ export default function App() {
                             <Navbar />
                             <div className="flex items-center gap-2">
                                 <Button variant="ghost" size="icon" asChild>
-                                    <a href="" target="_blank">
+                                    <a href="https://www.linkedin.com/in/elouanbruzek/" target="_blank">
                                         <Linkedin strokeWidth={1.5} />
                                     </a>
                                 </Button>
                                 <Button variant="ghost" size="icon" asChild>
-                                    <a href="" target="_blank">
+                                    <a href="https://github.com/AloneDay-91" target="_blank">
                                         <Github strokeWidth={1.5} />
                                     </a>
                                 </Button>
@@ -47,11 +50,42 @@ export default function App() {
                     </div>
                 </div>
 
-                <About />
-                <DivideTitle title="Formations"/>
+                <About/>
+                <DivideTitle title="Formations" id="formation"/>
                 <XP/>
-                <DivideTitle title="Compétences"/>
+                <DivideTitle title="Compétences" id="skills"/>
                 <Skills />
+                <DivideTitle title="Expériences professionnelles" id="xppro"/>
+                <XPPRO/>
+                <DivideTitle title="Projets personnelles & universitaires" id="projects"/>
+                <Projets/>
+                <DivideTitle title="Contact" id="contact"/>
+                <Contact/>
+                <footer className="max-w-screen-2xl mx-auto border-l border-r px-4 w-full h-20 flex items-center justify-between">
+                    <div>
+                        <p className="text-muted-foreground text-sm">© 2025 Elouan Bruzek. Tous droits réservés.</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Button variant="ghost" size="icon" asChild>
+                            <a href="https://www.linkedin.com/in/elouanbruzek/" target="_blank">
+                                <Linkedin strokeWidth={1.5} />
+                            </a>
+                        </Button>
+                        <Button variant="ghost" size="icon" asChild>
+                            <a href="https://github.com/AloneDay-91" target="_blank">
+                                <Github strokeWidth={1.5} />
+                            </a>
+                        </Button>
+                        <Button variant="ghost" size="icon" asChild>
+                            <ThemeToggle />
+                        </Button>
+                        <Button variant='outline' asChild>
+                            <a href="/CV_Elouan_Bruzek.pdf" target="_blank">
+                                Télécharger mon CV
+                            </a>
+                        </Button>
+                    </div>
+                </footer>
             </div>
 
 

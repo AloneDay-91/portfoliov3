@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import { motion } from "motion/react";
 
 type SpotlightProps = {
@@ -36,7 +34,7 @@ export const Spotlight = ({
       transition={{
         duration: 1.5,
       }}
-      className="pointer-events-none absolute inset-0 h-full w-full"
+      className="pointer-events-none absolute inset-0 h-full w-full overflow-hidden"
     >
       <motion.div
         animate={{

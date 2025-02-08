@@ -15,39 +15,22 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
     {
-        title: "Alert Dialog",
-        href: "/docs/primitives/alert-dialog",
+        title: "StatusPage",
+        href: "https://status.elouanb.fr/",
         description:
-            "A modal dialog that interrupts the user with important content and expects a response.",
+            "Site de status pour surveiller la disponibilité de mes services.",
     },
     {
-        title: "Hover Card",
-        href: "/docs/primitives/hover-card",
+        title: "Ressource Web",
+        href: "https://design.elouanb.fr/",
         description:
-            "For sighted users to preview content available behind a link.",
+            "Une collection de ressources pour les développeurs et designers.",
     },
     {
-        title: "Progress",
-        href: "/docs/primitives/progress",
+        title: "Générateur de QR Code",
+        href: "https://aloneday-91.github.io/qrcode-generator-html/",
         description:
-            "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-    {
-        title: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
-        description: "Visually or semantically separates content.",
-    },
-    {
-        title: "Tabs",
-        href: "/docs/primitives/tabs",
-        description:
-            "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    },
-    {
-        title: "Tooltip",
-        href: "/docs/primitives/tooltip",
-        description:
-            "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+            "Un générateur de QR Code pour partager des informations facilement.",
     },
 ]
 
@@ -75,7 +58,7 @@ export function Navbar() {
                                 <NavigationMenuLink asChild>
                                     <a
                                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                        href="/"
+                                        href="/#about"
                                     >
                                         <div className="mb-2 mt-4 text-lg font-medium">
                                             À propos
@@ -86,13 +69,13 @@ export function Navbar() {
                                     </a>
                                 </NavigationMenuLink>
                             </li>
-                            <ListItem href="/" title="Compétences">
+                            <ListItem href="/#skills" title="Compétences">
                                 Découvrez mes compétences.
                             </ListItem>
-                            <ListItem href="/" title="Projets">
+                            <ListItem href="/#projects" title="Projets">
                                 Découvrez mes projets.
                             </ListItem>
-                            <ListItem href="/" title="Contact">
+                            <ListItem href="/#contact" title="Contact">
                                 Contactez-moi.
                             </ListItem>
                         </ul>

@@ -19,7 +19,7 @@ export function About(){
                                 </h1>
                                 <p className="text-4xl text-muted-foreground">
                                     <TextAnimate animation="blurInUp" by="character" duration={0.3}>
-                                        Développeur web fullstack
+                                        Développeur fullstack junior
                                     </TextAnimate>
                                 </p>
                                 <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl dark:shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block my-6 max-w-80">

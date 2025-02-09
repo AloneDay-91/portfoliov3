@@ -203,10 +203,10 @@ export const CloseIcon = () => {
 const cards = [
   {
     description: "Création d'un blog WordPress pour le Comité Départemental de Tir de l'Essonne",
-    title: "blog WordPress CDTE",
+    title: "Blog WordPress CDTE",
     src: "projet_cdtev2.png",
-    ctaText: <Globe size={16} strokeWidth={1} />,
-    ctaLink: "https://cdtiressonne.fr/",
+    ctaText: <Globe size={16} strokeWidth={2} />,
+    ctaLink: "https://test.cdtiressonne.fr/",
     content: () => {
       return (
         <p>
@@ -219,7 +219,7 @@ const cards = [
     description: "Création d'un site d'inscription aux compétitions pour le Comité Départemental de Tir de l'Essonne",
     title: "Inscription compétitions CDTE",
     src: "projet_cdteresa.png",
-    ctaText: <Globe size={16} strokeWidth={1} />,
+    ctaText: <Globe size={16} strokeWidth={2} />,
     ctaLink: "https://inscriptions.cdtiressonne.fr/",
     content: () => {
         return (
@@ -234,7 +234,7 @@ const cards = [
         description: "Création d'un blog WordPress pour le Club de Tir le Cercle de Tir de Montgeron",
         title: "Blog WordPress CTM",
         src: "projet_ctm%20(2).png",
-        ctaText: <Globe size={16} strokeWidth={1} />,
+        ctaText: <Globe size={16} strokeWidth={2} />,
         ctaLink: "https://ctmontgeron.fr/",
         content: () => {
             return (
@@ -248,7 +248,7 @@ const cards = [
         description: "Site de macro pour OBS",
         title: "Macro OBS",
         src: "thumbProjets2.png",
-        ctaText: <Github size={16} strokeWidth={1} />,
+        ctaText: <Github size={16} strokeWidth={2} />,
         ctaLink: "https://github.com/AloneDay-91/TalkCode",
         content: () => {
             return (
@@ -262,7 +262,7 @@ const cards = [
         description: "Site de ressources pour les étudiants (veille technologique, cours, etc.)",
         title: "Site de ressources",
         src: "thumbProjets3.png",
-        ctaText: <Globe size={16} strokeWidth={1} />,
+        ctaText: <Globe size={16} strokeWidth={2} />,
         ctaLink: "https://elouanb.fr/design.elouanb.fr",
         content: () => {
             return (
@@ -276,7 +276,7 @@ const cards = [
         description: "Projet scolaire sur le compositeur Hans Zimmer",
         title: "Site sur Hans Zimmer",
         src: "projet_sae105.png",
-        ctaText: <Globe size={16} strokeWidth={1} />,
+        ctaText: <Globe size={16} strokeWidth={2} />,
         ctaLink: "https://mmi23f03.sae203.ovh/",
         content: () => {
             return (
@@ -290,7 +290,7 @@ const cards = [
         description: "Projet scolaire sur un site de co-jardinage",
         title: "Jard'Unis",
         src: "projet_jardunis.png",
-        ctaText: <Globe size={16} strokeWidth={1} />,
+        ctaText: <Globe size={16} strokeWidth={2} />,
         ctaLink: "https://mmi23f03.sae202.ovh/",
         content: () => {
             return (
@@ -304,13 +304,29 @@ const cards = [
         description: "Projet scolaire sur la DataViz des bornes de recharge électrique en France",
         title: "DataViz borne de recharge électrique",
         src: "thumbProjets1.png",
-        ctaText: <Globe size={16} strokeWidth={1} />,
+        ctaText: <Globe size={16} strokeWidth={2} />,
         ctaLink: "https://www.data.gouv.fr/fr/reuses/accessibilites-des-bornes-de-recharges-pour-voiture-electriques/",
         content: () => {
             return (
                 <p>
                     Technologies utilisées : CSS, HTML, JavaScript, Gsap
                 </p>
+            );
+        },
+    },
+    {
+        description: "Projet scolaire sur une publicité de parfum",
+        title: "Publicité fictive",
+        src: "thumbVideoPub.png",
+        ctaText: <Globe size={16} strokeWidth={2} />,
+        ctaLink: "https://www.youtube.com/watch?v=SQ95lLbs2q0",
+        content: () => {
+            return (
+                <iframe className="w-full" height="300" src="https://www.youtube.com/embed/SQ95lLbs2q0?si=wMelBXb1w_4mFK52"
+                        title="YouTube video player" frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen></iframe>
             );
         },
     },

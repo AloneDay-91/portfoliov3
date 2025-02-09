@@ -15,8 +15,17 @@ interface ThemeProviderProps {
     children: ReactNode;
 }
 
+// Vérifier le stockage local ou appliquer "dark" par défaut
+const getInitialTheme = (): Theme => {
+    if (typeof window !== 'undefined') {
+        const savedTheme = localStorage.getItem('theme') as Theme | null;
+        return savedTheme ?? 'dark'; // Par défaut, on force "dark"
+    }
+    return 'dark';
+};
+
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-    const [theme, setTheme] = useState<Theme>(localStorage.getItem('theme') as Theme || 'light');
+    const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
     useEffect(() => {
         if (theme === 'dark') {

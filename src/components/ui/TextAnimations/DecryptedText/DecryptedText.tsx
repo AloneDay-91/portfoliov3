@@ -119,6 +119,7 @@ export default function DecryptedText({
 
         if (isHovering) {
             setIsScrambling(true)
+            // @ts-ignore
             interval = setInterval(() => {
                 setRevealedIndices((prevRevealed) => {
                     if (sequential) {

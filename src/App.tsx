@@ -36,15 +36,19 @@ export default function App() {
 
                 {/* Contenu principal */}
                 <div className={cn(
-                    "sticky top-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] border ",
-                    isScrolled ? "pt-4 border-none" : "pt-0",
+                    "sticky top-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] md:border",
+                    isScrolled ? "pt-0 border-none sm:pt-4" : "pt-0",
                 )}>
                     <header
                         className={cn(
-                            "max-w-screen-xl mx-auto px-4 w-full h-20 flex items-center justify-between border-l border-r transition-all duration-300",
-                            isScrolled ? "border border-rounded backdrop-blur-md" : "max-w-screen-2xl"
+                            "mx-auto px-4 w-full h-20 flex items-center justify-between transition-all duration-300",
+                            "max-w-screen-2xl", // par défaut (mobile)
+                            isScrolled
+                                ? "backdrop-blur-md md:border md:border-l md:border-r rounded-xl mt-2 max-w-screen-xl"
+                                : "md:border-l md:border-r"
                         )}
                     >
+
                     <Navbar />
                         <div className="flex items-center gap-2">
                             <Button variant="ghost" size="icon" asChild>

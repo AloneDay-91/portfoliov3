@@ -12,12 +12,12 @@ export function About(){
                                 <img className='rounded-xl' src="/photoprofile.jpeg" alt=""/>
                             </div>
                             <div className='flex flex-col md:justify-start justify-center items-center md:items-start'>
-                                <h1 className="text-6xl font-medium">
+                                <h1 className="text-4xl md:text-6xl font-medium">
                                     <TextAnimate animation="blurInUp" by="character" duration={0.3}>
                                         Elouan Bruzek
                                     </TextAnimate>
                                 </h1>
-                                <p className="text-4xl text-muted-foreground">
+                                <p className="text-2xl md:text-4xl text-muted-foreground">
                                     <TextAnimate animation="blurInUp" by="character" duration={0.3}>
                                         Développeur fullstack junior
                                     </TextAnimate>
@@ -53,7 +53,7 @@ export function About(){
                                 </button>
                             </div>
                         </div>
-                        <div className="w-full text-center md:text-left md:w-2/5">
+                        <div className="w-full text-justify md:text-left md:w-2/5">
                             <p className="text-lg text-muted-foreground">
                                 Passionné par le web et le design interactif, je suis en deuxième année de BUT MMI à Troyes.
                                 <div className='inline-flex overflow-hidden px-2'><p><WordRotate className="text-lg font-bold text-black dark:text-white" words={['Dynamique', 'Curieux', 'Rigoureux', 'Serieux']}/></p></div>

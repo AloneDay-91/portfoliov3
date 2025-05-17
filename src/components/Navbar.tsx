@@ -43,14 +43,14 @@ export function Navbar() {
                         <span className="text-lg font-semibold">Elouan B.</span>
                     </a>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                <NavigationMenuItem className="hidden md:flex">
                     <a href="/">
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Accueil
                         </NavigationMenuLink>
                     </a>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                <NavigationMenuItem className="hidden md:flex">
                     <NavigationMenuTrigger>À propos</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -81,7 +81,7 @@ export function Navbar() {
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                <NavigationMenuItem className="hidden md:flex">
                     <NavigationMenuTrigger>Mes outils</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">

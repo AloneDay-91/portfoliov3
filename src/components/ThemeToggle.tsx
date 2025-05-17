@@ -7,7 +7,7 @@ const ThemeToggle: React.FC = () => {
     const { theme, toggleTheme } = useContext(ThemeContext)!; // Utilisation de `!` pour garantir que le context n'est pas `undefined`
 
     return (
-        <Button variant="ghost" size="icon" onClick={toggleTheme}>
+        <Button variant="ghost" size="icon" className="hidden md:flex" onClick={toggleTheme}>
             {/* Mode clair - soleil */}
             {theme === 'dark' ? (
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"

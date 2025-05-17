@@ -11,6 +11,18 @@ export function XPPRO(){
                 <div className="absolute inset-0 -z-10 h-full w-full dark:bg-[linear-gradient(to_right,#141414_1px,transparent_1px),linear-gradient(to_bottom,#141414_1px,transparent_1px)] bg-[linear-gradient(to_right,#f5f5f5_1px,transparent_1px),linear-gradient(to_bottom,#f5f5f5_1px,transparent_1px)] bg-[size:14px_24px]"></div>
                 <div className="flex items-start justify-start gap-8">
                     <div className="w-1/5">
+                        <span className="text-muted-foreground text-2xl"><DecryptedText animateOn="view" revealDirection="start" speed={80} sequential={true} text="Avril - Juin 2025" /></span>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <h2 className="font-medium text-2xl"><DecryptedText animateOn="view" revealDirection="start" speed={50} sequential={true} text="Xlog - Paris" /></h2>
+                        <div className="text-muted-foreground  leading-6 text-md">
+                            <p><DecryptedText animateOn="view" revealDirection="start" speed={50} sequential={true} text="Stage de 2ème année en développement web - développeur front" /></p>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div className="flex items-start justify-start gap-8">
+                    <div className="w-1/5">
                         <span className="text-muted-foreground text-2xl"><DecryptedText animateOn="view" revealDirection="start" speed={80} sequential={true} text="Juillet 2024" /></span>
                     </div>
                     <div className="flex flex-col gap-2">

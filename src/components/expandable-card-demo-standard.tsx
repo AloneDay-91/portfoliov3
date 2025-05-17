@@ -233,7 +233,7 @@ const cards = [
     {
         description: "Création d'un blog WordPress pour le Club de Tir le Cercle de Tir de Montgeron",
         title: "Blog WordPress CTM",
-        src: "projet_ctm%20(2).png",
+        src: "projet_ctm.png",
         ctaText: <Globe size={16} strokeWidth={2} />,
         ctaLink: "https://ctmontgeron.fr/",
         content: () => {
@@ -244,6 +244,22 @@ const cards = [
             );
         },
     },
+
+    {
+        description: "Création d'une application pour gérer les devoirs à rendre",
+        title: "Taskly",
+        src: "projet_taskly.png",
+        ctaText: <Globe size={16} strokeWidth={2} />,
+        ctaLink: "https://mmi23f03.sae401.ovh/",
+        content: () => {
+            return (
+                <p>
+                    Technologies utilisées : Symfony, Vuejs, PHP, Tailwindcss, HTML, JavaScript, ApiPlateform, JWT
+                </p>
+            );
+        },
+    },
+
     {
         description: "Site de macro pour OBS",
         title: "Macro OBS",

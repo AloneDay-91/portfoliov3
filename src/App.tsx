@@ -10,44 +10,63 @@ import {XP} from "@/components/XP.tsx";
 import {XPPRO} from "@/components/XPPRO.tsx";
 import {Projets} from "@/components/projets.tsx";
 import {Contact} from "@/components/Contact.tsx";
+import {useEffect, useState} from "react";
+import {cn} from "@/lib/utils.ts";
 
 export default function App() {
-    // @ts-ignore
+
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 15)
+        }
+
+        window.addEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [])
+
     return (
         <>
-            <div className="relative h-screen">
+            <div className="relative h-full">
                 {/* Spotlight en arrière-plan */}
                 <div className="absolute inset-0 -z-1 w-full h-full">
                     <Spotlight />
                 </div>
 
                 {/* Contenu principal */}
-                <div className="relative flex flex-1 flex-col items-center">
-                    <div className="border-grid sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-                        <header className="max-w-screen-2xl mx-auto border-l border-r px-4 w-full h-20 flex items-center justify-between">
-                            <Navbar />
-                            <div className="flex items-center gap-2">
-                                <Button variant="ghost" size="icon" asChild>
-                                    <a href="https://www.linkedin.com/in/elouanbruzek/" target="_blank">
-                                        <Linkedin strokeWidth={1.5} />
-                                    </a>
-                                </Button>
-                                <Button variant="ghost" size="icon" asChild>
-                                    <a href="https://github.com/AloneDay-91" target="_blank">
-                                        <Github strokeWidth={1.5} />
-                                    </a>
-                                </Button>
-                                <Button variant="ghost" size="icon" asChild>
-                                    <ThemeToggle />
-                                </Button>
-                                <Button variant='default' asChild>
-                                    <a href="/CV_Elouan_Bruzek.pdf" target="_blank">
-                                        Télécharger mon CV
-                                    </a>
-                                </Button>
-                            </div>
-                        </header>
-                    </div>
+                <div className={cn(
+                    "sticky top-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] border ",
+                    isScrolled ? "pt-4 border-none" : "pt-0",
+                )}>
+                    <header
+                        className={cn(
+                            "max-w-screen-xl mx-auto px-4 w-full h-20 flex items-center justify-between border-l border-r transition-all duration-300",
+                            isScrolled ? "border border-rounded backdrop-blur-md" : "max-w-screen-2xl"
+                        )}
+                    >
+                    <Navbar />
+                        <div className="flex items-center gap-2">
+                            <Button variant="ghost" size="icon" asChild>
+                                <a href="https://www.linkedin.com/in/elouanbruzek/" target="_blank">
+                                    <Linkedin strokeWidth={1.5} />
+                                </a>
+                            </Button>
+                            <Button variant="ghost" size="icon" asChild>
+                                <a href="https://github.com/AloneDay-91" target="_blank">
+                                    <Github strokeWidth={1.5} />
+                                </a>
+                            </Button>
+                            <Button variant="ghost" size="icon" asChild>
+                                <ThemeToggle />
+                            </Button>
+                            <Button variant="default" asChild>
+                                <a href="/CV_Elouan_Bruzek.pdf" target="_blank">
+                                    Télécharger mon CV
+                                </a>
+                            </Button>
+                        </div>
+                    </header>
                 </div>
 
                 <About/>

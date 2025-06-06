@@ -1,8 +1,6 @@
 // src/pages/Home.tsx
-import {DivideTitle} from "@/components/DivideTitle.tsx";
 import {ContactInfo} from "@/components/Contact.tsx";
 import {TextAnimate} from "@/components/text-animate.tsx";
-import {Projets} from "@/components/projets.tsx";
 const Contact = () => (
     <div>
         <div className="border-grid flex flex-1 flex-col items-center">

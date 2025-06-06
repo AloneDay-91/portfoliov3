@@ -1,5 +1,4 @@
 // src/pages/Projects.tsx
-import {DivideTitle} from "@/components/DivideTitle.tsx";
 import {Projets} from "@/components/projets.tsx";
 import {TextAnimate} from "@/components/text-animate.tsx";
 

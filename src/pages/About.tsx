@@ -3,7 +3,6 @@ import {DivideTitle} from "@/components/DivideTitle.tsx";
 import {XP} from "@/components/XP.tsx";
 import {XPPRO} from "@/components/XPPRO.tsx";
 import {TextAnimate} from "@/components/text-animate.tsx";
-import {ContactInfo} from "@/components/Contact.tsx";
 import {Skills} from "@/components/Skills.tsx";
 
 const About = () => (

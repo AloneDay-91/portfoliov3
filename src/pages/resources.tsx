@@ -31,6 +31,7 @@ function groupByCategory(projects: Project[]) {
 
 export function Resources(){
     const { theme } = useTheme();
+    // @ts-ignore
     const [projects, setProjects] = useState<Project[]>([]);
     const [grouped, setGrouped] = useState<Record<string, Project[]>>({});
 

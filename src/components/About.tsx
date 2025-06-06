@@ -1,7 +1,7 @@
 import {TextAnimate} from "@/components/text-animate.tsx";
 import { WordRotate } from "./magicui/word-rotate";
 
-export function About(){
+export function AboutInfo(){
     return (
         <div className="border-grid flex flex-1 flex-col items-center" id="#about">
             <div className="border-grid sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

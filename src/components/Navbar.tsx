@@ -12,43 +12,42 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import {Link} from "react-router-dom";
+import { Badge } from "@/components/ui/badge"
 
-const components: { title: string; href: string; description: string }[] = [
+const components = [
     {
         title: "StatusPage",
         href: "https://status.elouanb.fr/",
-        description:
-            "Site de status pour surveiller la disponibilité de mes services.",
+        description: "Site de status pour surveiller la disponibilité de mes services.",
     },
     {
         title: "Ressource Web",
-        href: "https://design.elouanb.fr/",
-        description:
-            "Une collection de ressources pour les développeurs et designers.",
+        href: "/ressources",
+        description: "Une collection de ressources pour les développeurs et designers.",
+        isNew: true,
     },
     {
         title: "Générateur de QR Code",
         href: "https://aloneday-91.github.io/qrcode-generator-html/",
-        description:
-            "Un générateur de QR Code pour partager des informations facilement.",
+        description: "Un générateur de QR Code pour partager des informations facilement.",
     },
 ]
+
 
 export function Navbar() {
     return (
         <NavigationMenu className="flex items-center justify-between w-full">
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <a href="/" className="flex items-center mr-2">
-                        <span className="text-lg font-semibold">Elouan B.</span>
-                    </a>
+                    <Link to="/" className="text-lg font-semibold mr-2 flex items-center">Elouan B.</Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="hidden md:flex">
-                    <a href="/">
+                    <Link to="/">
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Accueil
                         </NavigationMenuLink>
-                    </a>
+                    </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="hidden md:flex">
                     <NavigationMenuTrigger>À propos</NavigationMenuTrigger>
@@ -56,9 +55,9 @@ export function Navbar() {
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
-                                    <a
+                                    <Link
                                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                        href="/#about"
+                                        to="/about"
                                     >
                                         <div className="mb-2 mt-4 text-lg font-medium">
                                             À propos
@@ -66,16 +65,16 @@ export function Navbar() {
                                         <p className="text-sm leading-tight text-muted-foreground">
                                             Découvrez mon parcours, mes compétences et mes projets.
                                         </p>
-                                    </a>
+                                    </Link>
                                 </NavigationMenuLink>
                             </li>
-                            <ListItem href="/#skills" title="Compétences">
+                            <ListItem href="/about" title="Compétences">
                                 Découvrez mes compétences.
                             </ListItem>
-                            <ListItem href="/#projects" title="Projets">
+                            <ListItem href="/projects" title="Projets">
                                 Découvrez mes projets.
                             </ListItem>
-                            <ListItem href="/#contact" title="Contact">
+                            <ListItem href="/contact" title="Contact">
                                 Contactez-moi.
                             </ListItem>
                         </ul>
@@ -88,7 +87,16 @@ export function Navbar() {
                             {components.map((component) => (
                                 <ListItem
                                     key={component.title}
-                                    title={component.title}
+                                    title={
+                                        <span className="flex items-center gap-2">
+                {component.title}
+                                            {component.isNew && (
+                                                <Badge variant="default">
+                                                    Nouveau
+                                                </Badge>
+                                            )}
+            </span>
+                                    }
                                     href={component.href}
                                 >
                                     {component.description}

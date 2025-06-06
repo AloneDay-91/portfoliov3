@@ -1,7 +1,7 @@
 import {Github, Linkedin, Mails} from "lucide-react";
 import {Button} from "@/components/ui/button.tsx";
 
-export function Contact(){
+export function ContactInfo(){
     return (
         <>
 <div className="">

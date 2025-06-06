@@ -110,7 +110,7 @@ export function VelocityScroll({
   return (
     <div
       className={cn(
-        "relative w-full text-2xl font-md leading-[5rem] tracking-[-0.02em] md:text-4xl md:font-light md:leading-[5rem]",
+        "relative w-full text-2xl font-md leading-[5rem] tracking-[-0.02em] md:text-4xl md:font-thin md:leading-[5rem]",
         className,
       )}
       {...props}

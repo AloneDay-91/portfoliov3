@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 interface Tab {
   title: string;
   icon: LucideIcon;
+  to: string;
   type?: never;
 }
 
@@ -19,6 +20,7 @@ interface Separator {
   type: "separator";
   title?: never;
   icon?: never;
+  to?: never;
 }
 
 type TabItem = Tab | Separator;

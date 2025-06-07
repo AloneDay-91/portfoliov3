@@ -67,21 +67,21 @@ export function Navbar() {
                                     </Link>
                                 </NavigationMenuLink>
                             </li>
-                            <ListItem title="Compétences">
-                                <Link to='/about'>
-                                    Découvrez mes compétences.
-                                </Link>
-                            </ListItem>
-                            <ListItem title="Projets">
-                                <Link to='/projects'>
-                                    Découvrez mes projets.
-                                </Link>
-                            </ListItem>
-                            <ListItem title="Contact">
-                                <Link to='/contact'>
-                                    Contactez-moi.
-                                </Link>
-                            </ListItem>
+                            <Link to='/about'>
+                                <ListItem title="Compétences">
+                                        Découvrez mes compétences.
+                                </ListItem>
+                            </Link>
+                            <Link to='/projects'>
+                                <ListItem title="Projets">
+                                        Découvrez mes projets.
+                                </ListItem>
+                            </Link>
+                            <Link to='/contact'>
+                                <ListItem title="Contact">
+                                        Contactez-moi.
+                                </ListItem>
+                            </Link>
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -91,40 +91,42 @@ export function Navbar() {
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                             {components.map((component) => {
                                 const isExternal = component.href.startsWith("http");
-                                const link = isExternal ? (
-                                    <a
-                                        href={component.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2 font-medium"
-                                    >
-                                        {component.title}
-                                        {component.isNew && (
-                                            <Badge variant="default" className="ml-2">
-                                                Nouveau
-                                            </Badge>
-                                        )}
-                                    </a>
-                                ) : (
-                                    <Link to={component.href} className="flex items-center gap-2 font-medium">
-                                        {component.title}
-                                        {component.isNew && (
-                                            <Badge variant="default" className="ml-2">
-                                                Nouveau
-                                            </Badge>
-                                        )}
-                                    </Link>
-                                );
+                                const Wrapper = isExternal ? "a" : Link;
+                                const wrapperProps = isExternal
+                                    ? {
+                                        href: component.href,
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        className: "block",
+                                    }
+                                    : {
+                                        to: component.href,
+                                        className: "block",
+                                    };
+
+                                // @ts-ignore
                                 return (
-                                    <ListItem key={component.title} title={link}>
-                                        {component.description}
-                                    </ListItem>
+                                    <Wrapper key={component.title} {...wrapperProps}>
+                                        <ListItem
+                                            title={
+                                                <span className="flex items-center gap-2 font-medium">
+                                                    {component.title}
+                                                    {component.isNew && (
+                                                        <Badge variant="default" className="ml-2">
+                                                            Nouveau
+                                                        </Badge>
+                                                    )}
+                                                </span>
+                                            }
+                                        >
+                                            {component.description}
+                                        </ListItem>
+                                    </Wrapper>
                                 );
                             })}
                         </ul>
+
                     </NavigationMenuContent>
-
-
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

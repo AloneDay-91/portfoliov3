@@ -21,7 +21,7 @@ export default function App() {
         { title: "About", icon: BookUser, to: "/about" },
         { title: "Contact", icon: Mail, to: "/contact" },
         { title: "Resources", icon: Archive, to: "/ressources" },
-        { type: "separator" }
+        { type: "separator" as const }
     ];
 
 

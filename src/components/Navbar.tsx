@@ -91,40 +91,45 @@ export function Navbar() {
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                             {components.map((component) => {
                                 const isExternal = component.href.startsWith("http");
-                                const Wrapper = isExternal ? "a" : Link;
-                                const wrapperProps = isExternal
-                                    ? {
-                                        href: component.href,
-                                        target: "_blank",
-                                        rel: "noopener noreferrer",
-                                        className: "block",
-                                    }
-                                    : {
-                                        to: component.href,
-                                        className: "block",
-                                    };
+                                const content = (
+                                    <ListItem
+                                        title={
+                                            <span className="flex items-center gap-2 font-medium">
+                                            {component.title}
+                                                {component.isNew && (
+                                                    <Badge variant="default" className="ml-2">
+                                                        Nouveau
+                                                    </Badge>
+                                                )}
+                                            </span>
+                                        }
+                                    >
+                                        {component.description}
+                                    </ListItem>
+                                );
 
-                                // @ts-ignore
-                                return (
-                                    <Wrapper key={component.title} {...wrapperProps}>
-                                        <ListItem
-                                            title={
-                                                <span className="flex items-center gap-2 font-medium">
-                                                    {component.title}
-                                                    {component.isNew && (
-                                                        <Badge variant="default" className="ml-2">
-                                                            Nouveau
-                                                        </Badge>
-                                                    )}
-                                                </span>
-                                            }
-                                        >
-                                            {component.description}
-                                        </ListItem>
-                                    </Wrapper>
+                                return isExternal ? (
+                                    <a
+                                        key={component.title}
+                                        href={component.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block"
+                                    >
+                                        {content}
+                                    </a>
+                                ) : (
+                                    <Link
+                                        key={component.title}
+                                        to={component.href}
+                                        className="block"
+                                    >
+                                        {content}
+                                    </Link>
                                 );
                             })}
                         </ul>
+
 
                     </NavigationMenuContent>
                 </NavigationMenuItem>

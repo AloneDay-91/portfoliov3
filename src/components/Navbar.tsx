@@ -44,10 +44,10 @@ const components = [
     },
     {
         title: "Design System",
-        href: "/design",
+        href: "https://design.elouanb.fr/",
         description: "Un design system pour standardiser les composants de vos applications.",
         isNew: true,
-        textBadge: "Bientôt",
+        textBadge: "Nouveau",
     },
 ]
 

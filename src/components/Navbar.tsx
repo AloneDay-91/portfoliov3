@@ -15,8 +15,7 @@ import {
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge"
 import {MagicCard} from "@/components/magicui/magic-card.tsx";
-import {Icon} from "lucide-react";
-import {Component2Icon, ComponentBooleanIcon} from "@radix-ui/react-icons";
+import {ComponentBooleanIcon} from "@radix-ui/react-icons";
 
 const components = [
     {

@@ -9,9 +9,12 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 import {Resources} from "@/pages/resources.tsx";
 import {ExpandableTabs} from "@/components/ui/expandable-tabs.tsx";
 import {FolderOpen, Mail, Archive, BookUser, HomeIcon} from "lucide-react";
+import QRGenerator from "@/pages/qrgenerator.tsx";
+import { Toaster } from "@/components/ui/sonner"
 
 export default function App() {
 
@@ -27,6 +30,7 @@ export default function App() {
 
     return (
         <>
+            <Toaster />
             <div className="relative h-full">
                 {/* Spotlight en arrière-plan */}
                 <div className="absolute inset-0 -z-1 w-full h-full">
@@ -39,6 +43,9 @@ export default function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/ressources" element={<Resources />} />
+                    <Route path="/qrgenerator" element={<QRGenerator />} />
+                    {/* Route catch-all pour la 404 */}
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
                 <div className="sticky flex flex-col gap-4 top-4 left-4 z-50 bottom-6 mx-auto items-center w-full sm:hidden">
                     <ExpandableTabs tabs={tabs} />

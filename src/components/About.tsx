@@ -57,7 +57,7 @@ export function AboutInfo(){
                             <p className="text-lg text-muted-foreground">
                                 Passionné par le web et le design interactif, je suis en deuxième année de BUT MMI à Troyes.
                                 <div className='inline-flex overflow-hidden px-2'><p><WordRotate className="text-lg font-bold text-black dark:text-white" words={['Dynamique', 'Curieux', 'Rigoureux', 'Serieux']}/></p></div>
-                                et toujours en quête d'apprentissage, je m'investis dans des projets personnels et collabore sur diverses initiatives pour affiner mes compétences techniques et créatives. Je suis actuellement à la recherche d'un stage d'une durée minimale de 10 semaines
+                                et toujours en quête d'apprentissage, je m'investis dans des projets personnels et collabore sur diverses initiatives pour affiner mes compétences techniques et créatives.
                             </p>
                         </div>
                     </div>

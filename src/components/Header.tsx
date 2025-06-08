@@ -45,9 +45,11 @@ const Header = () => {
                         <Github strokeWidth={1.5} />
                     </a>
                 </Button>
-                <Button variant="ghost" size="icon" asChild>
-                    <ThemeToggle />
-                </Button>
+                <div className="hidden md:block">
+                    <Button variant="ghost" size="icon" asChild >
+                        <ThemeToggle />
+                    </Button>
+                </div>
                 <Button variant="default" asChild>
                     <a href="/CV_Elouan_Bruzek.pdf" target="_blank">
                         Télécharger mon CV

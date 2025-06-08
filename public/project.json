@@ -534,5 +534,13 @@
     "nb_components": "1",
     "image": "/screenshots/tweakcn.com_editor_theme.png",
     "category": "React"
+  },
+  {
+    "id": "69",
+    "nom": "Private Schadcn ui",
+    "url": "https://ui-private.shadcn.com/",
+    "nb_components": "1",
+    "image": "/screenshots/private_shadcnui.com.png",
+    "category": "React"
   }
 ]

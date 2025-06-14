@@ -2,7 +2,8 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import {Github, Globe} from "lucide-react";
+import { cards } from "@/data/cards";
+import { useNavigate } from "react-router-dom";
 
 export default function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -10,6 +11,8 @@ export default function ExpandableCardDemo() {
   );
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -99,11 +102,11 @@ export default function ExpandableCardDemo() {
 
                   <motion.a
                     layoutId={`button-${active.title}-${id}`}
-                    href={active.ctaLink}
+                    href={active.cta.ctaLink}
                     target="_blank"
                     className="px-4 py-3 text-sm rounded-lg font-normal text-muted-foreground border"
                   >
-                    {active.ctaText}
+                    {active.cta.ctaText}
                   </motion.a>
                 </div>
                 <div className="pt-4 relative px-4">
@@ -126,12 +129,12 @@ export default function ExpandableCardDemo() {
       </AnimatePresence>
       <ul className="w-full gap-4">
         {cards.map((card) => (
-          <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={`card-${card.title}-${id}`}
-            onClick={() => setActive(card)}
-            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
-          >
+            <motion.div
+                layoutId={`card-${card.title}-${id}`}
+                key={`card-${card.title}-${id}`}
+                onClick={() => navigate(`/projects/${card.id}`)}
+                className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+            >
             <div className="flex gap-4 flex-col md:flex-row items-center">
               <motion.div layoutId={`image-${card.title}-${id}`}>
                 <img
@@ -158,7 +161,7 @@ export default function ExpandableCardDemo() {
               </div>
             </div>
             <motion.button layoutId={`button-${card.title}-${id}`} className="px-4 py-2 text-sm text-muted-foreground rounded-lg font-normal border mt-4 md:mt-0">
-              {card.ctaText}
+              {card.cta.ctaIcon}
             </motion.button>
           </motion.div>
         ))}
@@ -199,151 +202,3 @@ export const CloseIcon = () => {
     </motion.svg>
   );
 };
-
-const cards = [
-  {
-    description: "Création d'un blog WordPress pour le Comité Départemental de Tir de l'Essonne",
-    title: "Blog WordPress CDTE",
-    src: "projet_cdtev2.png",
-    ctaText: <Globe size={16} strokeWidth={2} />,
-    ctaLink: "https://test.cdtiressonne.fr/",
-    content: () => {
-      return (
-        <p>
-          Technologies utilisées : WordPress, Elementor, PHP, CSS, HTML, JavaScript
-        </p>
-      );
-    },
-  },
-{
-    description: "Création d'un site d'inscription aux compétitions pour le Comité Départemental de Tir de l'Essonne",
-    title: "Inscription compétitions CDTE",
-    src: "projet_cdteresa.png",
-    ctaText: <Globe size={16} strokeWidth={2} />,
-    ctaLink: "https://inscriptions.cdtiressonne.fr/",
-    content: () => {
-        return (
-            <p>
-                Technologies utilisées : PHP, CSS, HTML, JavaScript, Mysql, TailwindCSS
-            </p>
-        );
-    },
-},
-
-    {
-        description: "Création d'un blog WordPress pour le Club de Tir le Cercle de Tir de Montgeron",
-        title: "Blog WordPress CTM",
-        src: "projet_ctm.png",
-        ctaText: <Globe size={16} strokeWidth={2} />,
-        ctaLink: "https://ctmontgeron.fr/",
-        content: () => {
-            return (
-                <p>
-                    Technologies utilisées : WordPress, Elementor, PHP, CSS, HTML, JavaScript
-                </p>
-            );
-        },
-    },
-
-    {
-        description: "Création d'une application pour gérer les devoirs à rendre",
-        title: "Taskly",
-        src: "projet_taskly.png",
-        ctaText: <Globe size={16} strokeWidth={2} />,
-        ctaLink: "https://mmi23f03.sae401.ovh/",
-        content: () => {
-            return (
-                <p>
-                    Technologies utilisées : Symfony, Vuejs, PHP, Tailwindcss, HTML, JavaScript, ApiPlateform, JWT
-                </p>
-            );
-        },
-    },
-
-    {
-        description: "Site de macro pour OBS",
-        title: "Macro OBS",
-        src: "thumbProjets2.png",
-        ctaText: <Github size={16} strokeWidth={2} />,
-        ctaLink: "https://github.com/AloneDay-91/TalkCode",
-        content: () => {
-            return (
-                <p>
-                    Technologies utilisées : React, HTML, JavaScript, Mysql, TailwindCSS, Vite.Js
-                </p>
-            );
-        },
-    },
-    {
-        description: "Site de ressources pour les étudiants (veille technologique, cours, etc.)",
-        title: "Site de ressources",
-        src: "thumbProjets3.png",
-        ctaText: <Globe size={16} strokeWidth={2} />,
-        ctaLink: "https://elouanb.fr/design.elouanb.fr",
-        content: () => {
-            return (
-                <p>
-                    Technologies utilisées : PHP, CSS, HTML, JavaScript, Mysql, TailwindCSS, Symfony
-                </p>
-            );
-        },
-    },
-    {
-        description: "Projet scolaire sur le compositeur Hans Zimmer",
-        title: "Site sur Hans Zimmer",
-        src: "projet_sae105.png",
-        ctaText: <Globe size={16} strokeWidth={2} />,
-        ctaLink: "https://mmi23f03.sae203.ovh/",
-        content: () => {
-            return (
-                <p>
-                    Technologies utilisées : PHP, CSS, HTML, JavaScript, Mysql, TailwindCSS
-                </p>
-            );
-        },
-    },
-    {
-        description: "Projet scolaire sur un site de co-jardinage",
-        title: "Jard'Unis",
-        src: "projet_jardunis.png",
-        ctaText: <Globe size={16} strokeWidth={2} />,
-        ctaLink: "https://mmi23f03.sae202.ovh/",
-        content: () => {
-            return (
-                <p>
-                    Technologies utilisées : PHP, CSS, HTML, JavaScript, Mysql
-                </p>
-            );
-        },
-    },
-    {
-        description: "Projet scolaire sur la DataViz des bornes de recharge électrique en France",
-        title: "DataViz borne de recharge électrique",
-        src: "thumbProjets1.png",
-        ctaText: <Globe size={16} strokeWidth={2} />,
-        ctaLink: "https://www.data.gouv.fr/fr/reuses/accessibilites-des-bornes-de-recharges-pour-voiture-electriques/",
-        content: () => {
-            return (
-                <p>
-                    Technologies utilisées : CSS, HTML, JavaScript, Gsap
-                </p>
-            );
-        },
-    },
-    {
-        description: "Projet scolaire sur une publicité de parfum",
-        title: "Publicité fictive",
-        src: "thumbVideoPub.png",
-        ctaText: <Globe size={16} strokeWidth={2} />,
-        ctaLink: "https://www.youtube.com/watch?v=SQ95lLbs2q0",
-        content: () => {
-            return (
-                <iframe className="w-full" height="300" src="https://www.youtube.com/embed/SQ95lLbs2q0?si=wMelBXb1w_4mFK52"
-                        title="YouTube video player" frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen></iframe>
-            );
-        },
-    },
-];

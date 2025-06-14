@@ -4,9 +4,22 @@ import {XP} from "@/components/XP.tsx";
 import {XPPRO} from "@/components/XPPRO.tsx";
 import {TextAnimate} from "@/components/text-animate.tsx";
 import {Skills} from "@/components/Skills.tsx";
+import { motion } from "framer-motion";
+
+const pageVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+};
 
 const About = () => (
-
+    <motion.div
+        variants={pageVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.5 }}
+    >
     <div>
         <div className="border-grid flex flex-1 flex-col items-center">
             <div className="border-grid sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -34,6 +47,7 @@ const About = () => (
         <DivideTitle title="Compétences" id="skills"/>
         <Skills />
     </div>
+    </motion.div>
 );
 
 export default About;

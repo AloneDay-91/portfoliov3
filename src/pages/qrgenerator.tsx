@@ -3,6 +3,13 @@ import DecryptedText from "@/components/ui/TextAnimations/DecryptedText/Decrypte
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {toast} from "sonner";
+import { motion } from "framer-motion";
+
+const pageVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+};
 
 export default function QRCodeGenerator() {
     const [qrValue, setQrValue] = useState("");
@@ -87,6 +94,13 @@ export default function QRCodeGenerator() {
 
 
     return (
+        <motion.div
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.5 }}
+        >
         <div>
             <div className="border-grid flex flex-1 flex-col items-center">
                 <div className="border-grid w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -146,5 +160,6 @@ export default function QRCodeGenerator() {
                 </div>
             </div>
         </div>
+        </motion.div>
     );
 }

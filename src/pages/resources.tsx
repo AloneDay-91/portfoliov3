@@ -15,6 +15,13 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import {ListFilter} from "lucide-react";
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
+import { motion } from "framer-motion";
+
+const pageVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+};
 
 type Project = {
     id: string;
@@ -73,6 +80,13 @@ export function Resources(){
     const id = useId();
 
     return (
+        <motion.div
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.5 }}
+        >
         <>
             <div className="">
                 <div className="border-grid flex flex-1 flex-col items-center">
@@ -92,8 +106,9 @@ export function Resources(){
                                         </TextAnimate>
                                     </p>
                                 </div>
-                                <div><div className="flex flex-col gap-4">
+                                <div><div className="flex items-center gap-4">
                                     <Popover>
+                                        <span className="text-sm">Filtres</span>
                                         <PopoverTrigger asChild>
                                             <Button variant="outline" size="icon" aria-label="Filters">
                                                 <ListFilter size={16} strokeWidth={2} aria-hidden="true" />
@@ -172,5 +187,6 @@ export function Resources(){
                 </div>
             </div>
         </>
+        </motion.div>
     )
 }

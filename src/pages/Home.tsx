@@ -6,7 +6,21 @@ import {Skills} from "@/components/Skills.tsx";
 import {XPPRO} from "@/components/XPPRO.tsx";
 import {Projets} from "@/components/projets.tsx";
 import {ContactInfo} from "@/components/Contact.tsx";
+import { motion } from "framer-motion";
+
+const pageVariants = {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -20 },
+};
 const Home = () => (
+    <motion.div
+        variants={pageVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.5 }}
+    >
     <div>
         <AboutInfo/>
         <DivideTitle title="Formations" id="formation"/>
@@ -20,6 +34,7 @@ const Home = () => (
         <DivideTitle title="Contact" id="contact"/>
         <ContactInfo/>
     </div>
+    </motion.div>
 );
 
 export default Home;

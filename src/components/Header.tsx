@@ -32,7 +32,6 @@ const Header = () => {
                     : "md:border-l md:border-r"
             )}
         >
-
             <Navbar />
             <div className="flex items-center gap-2">
                 <Button variant="ghost" size="icon" asChild>

@@ -42,10 +42,10 @@ const components = [
     {
         icon: StackIcon,
         title: "Collection backgrounds",
-        href: "/bg",
+        href: "https://bg.elouanb.fr",
         description: "Une collection de backgrounds ",
         isNew: true,
-        textBadge: "Bientôt",
+        textBadge: "Nouveau",
     },
     {
         icon: FrameIcon,
@@ -53,7 +53,7 @@ const components = [
         href: "https://design.elouanb.fr/",
         description: "Un design system pour composants.",
         isNew: true,
-        textBadge: "Nouveau",
+        textBadge: "Bientôt",
     },
 ]
 

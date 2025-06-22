@@ -1,9 +1,6 @@
-
 import {Spotlight} from "@/components/ui/spotlight-new.tsx";
 import Header from "@/components/Header.tsx";
 import Footer from "@/components/Footer.tsx";
-
-
 import {Routes, Route, useLocation} from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
@@ -19,7 +16,6 @@ import { Toaster } from "@/components/ui/sonner"
 import { AnimatePresence } from "framer-motion";
 
 export default function App() {
-
     const location = useLocation();
 
     const tabs = [
@@ -31,34 +27,33 @@ export default function App() {
         { type: "separator" as const }
     ];
 
-
     return (
-        <main>
+        <>
             <Toaster />
-            <div className="relative h-full">
-                {/* Spotlight en arrière-plan */}
-                <div className="absolute inset-0 -z-1 w-full h-full">
-                    <Spotlight />
+            <main>
+                <div className="relative h-full">
+                    <div className="absolute inset-0 -z-1 w-full h-full">
+                        <Spotlight />
+                    </div>
+                    <Header/>
+                    <AnimatePresence mode="wait">
+                        <Routes location={location} key={location.pathname}>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/projects" element={<Projects />} />
+                            <Route path="/projects/:id" element={<ProjectsDetail />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/ressources" element={<Resources />} />
+                            <Route path="/qrgenerator" element={<QRGenerator />} />
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </AnimatePresence>
+                    <div className="sticky flex flex-col gap-4 top-4 left-4 z-50 bottom-6 mx-auto items-center w-full sm:hidden">
+                        <ExpandableTabs tabs={tabs} />
+                    </div>
                 </div>
-                <Header/>
-                <AnimatePresence mode="wait">
-                    <Routes location={location} key={location.pathname}>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/projects" element={<Projects />} />
-                        <Route path="/projects/:id" element={<ProjectsDetail />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="/ressources" element={<Resources />} />
-                        <Route path="/qrgenerator" element={<QRGenerator />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </AnimatePresence>
-                <div className="sticky flex flex-col gap-4 top-4 left-4 z-50 bottom-6 mx-auto items-center w-full sm:hidden">
-                    <ExpandableTabs tabs={tabs} />
-                </div>
-
-            </div>
-            <Footer/>
-        </main>
+                <Footer/>
+            </main>
+        </>
     );
 }

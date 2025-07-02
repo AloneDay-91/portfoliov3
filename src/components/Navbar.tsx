@@ -53,7 +53,7 @@ const components = [
         href: "https://design.elouanb.fr/",
         description: "Un design system pour composants.",
         isNew: true,
-        textBadge: "Bientôt",
+        textBadge: "Nouveau",
     },
 ]
 

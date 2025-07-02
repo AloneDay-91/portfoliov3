@@ -168,6 +168,216 @@ export const cards = [
     },
 
     {
+        id: "projet_lumenui",
+        category: "Developpement Web",
+        description: "Création d'un design system",
+        title: "Lumen/UI",
+        src: "projet_lumenui.png",
+        cta: {
+            ctaIcon: <GlobeIcon />,
+            ctaText: "Voir le site",
+            ctaLink: "https://design.elouanb.fr",
+        },
+        badge: {
+            color: "yellow",
+        },
+        date: "2025-07-01",
+        avatars: [
+            {
+                src: "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+                label: "TailwindCSS",
+            },
+            {
+                src: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png",
+                label: "React",
+            },
+            {
+                src: "https://icon.icepanel.io/Technology/png-shadow-512/Next.js.png",
+                label: "Next.js",
+            },
+            {
+                src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/208px-Markdown-mark.svg.png?20190322184628",
+                label: "Markdown",
+            },
+
+        ],
+        content: () => {
+            return (
+                <div>
+                    <p>
+                        Lumen/UI est un projet personnel que j'ai développé pour créer un design system complet, inspiré de la bibliothèque Shadcn/ui. L'objectif était de concevoir une collection de composants réutilisables et personnalisables, tout en respectant les principes de l'éco-conception.
+                    </p>
+                </div>
+            );
+        },
+    },
+
+    {
+        id: "projet_bgcollections",
+        category: "Developpement Web",
+        description: "Collection de backgrounds pour les projets",
+        title: "Background Collections",
+        src: "projet_backgroundCollections.png",
+        cta: {
+            ctaIcon: <GlobeIcon />,
+            ctaText: "Voir le site",
+            ctaLink: "https://bg.elouanb.fr",
+        },
+        badge: {
+            color: "yellow",
+        },
+        date: "2025-06-01",
+        avatars: [
+            {
+                src: "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+                label: "TailwindCSS",
+            },
+            {
+                src: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png",
+                label: "React",
+            },
+
+        ],
+        content: () => {
+            return (
+                <div>
+                    <p>
+                        Background Collections est un projet personnel que j'ai développé pour créer une collection de backgrounds réutilisables pour mes projets. L'objectif était de fournir une bibliothèque de fonds d'écran personnalisables et adaptables, tout en respectant les principes de l'éco-conception.
+                    </p>
+                </div>
+            );
+        },
+    },
+
+    {
+        id: "projet_design",
+        category: "Developpement Web",
+        description: "Site de ressources pour les étudiants (veille technologique, cours, etc.)",
+        title: "Ressources web",
+        src: "projet_ressource.png",
+        cta: {
+            ctaIcon: <GlobeIcon />,
+            ctaText: "Voir le site",
+            ctaLink: "https://elouanb.fr/ressources",
+        },
+        badge: {
+            color: "yellow",
+        },
+        date: "2025-05-01",
+        avatars: [
+            {
+                src: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png",
+                label: "React",
+            },
+            {
+                src: "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+                label: "TailwindCSS",
+            }
+        ],
+        content: () => {
+            return (
+                <div>
+                    <p>
+                        En tant que développeur, je passe beaucoup de temps à lire de la documentation, explorer des bibliothèques et m’inspirer d’autres sites. Chaque jour, je découvre de nouvelles ressources utiles que j’ai souvent envie de retrouver facilement.
+                    </p>
+                    <br/>
+                    <p>
+                        C’est pourquoi j’ai décidé de créer un site personnel qui me permet de répertorier tous les liens vers les outils, articles, documentations ou interfaces qui m’aident au quotidien. L’idée était de concevoir un espace centralisé, clair et évolutif, pensé d’abord pour mon usage, mais qui pourrait aussi servir à d’autres.
+                    </p>
+                    <br/>
+                    <p>
+                        Pour développer ce projet, j’ai utilisé des technologies actuelles et performantes : Nuxt.js, pour profiter de la puissance de Vue.js avec un framework structuré, Tailwind CSS, pour un design simple, responsive et rapide à mettre en place et Shadcn/ui, une bibliothèque de composants esthétiques et accessibles, parfaitement intégrée à Tailwind.
+                    </p>
+                    <br/>
+                    <p>
+                        J’ai également mis en place une authentification complète grâce à la bibliothèque Auth.js. Elle me permet de gérer les connexions utilisateur en toute sécurité.
+                        En plus du formulaire classique (email + mot de passe), j’ai activé l’OAuth avec GitHub, ce qui permet aux utilisateurs de se connecter plus rapidement avec leur compte GitHub.
+                    </p>
+                    <br/>
+                    <p>
+                        Côté base de données, j’utilise Prisma comme ORM, ce qui me permet de modéliser mes données de manière claire et typée tout en gardant une bonne productivité. Pour le stockage local, j’ai choisi SQLite, idéal pour un projet personnel ou en phase de développement. Cette combinaison me permet d’avoir un flux de données simple, efficace et facile à maintenir.
+                    </p>
+                    <br/>
+                    <p>
+                        Le site comporte :
+                    </p>
+                    <ul className="list-disc pl-6 mt-2">
+                        <li>Une page de liste qui affiche toutes les ressources enregistrées, avec leurs informations détaillées,</li>
+                        <li>Un panneau d’administration pour ajouter, modifier ou supprimer les liens et gérer l’ensemble des contenus,</li>
+                        <li>Une authentification sécurisée avec gestion des sessions,</li>
+                        <li>Une interface responsive, accessible depuis un ordinateur, une tablette ou un mobile.</li>
+                    </ul>
+                    <br/>
+                    <p>Ce projet m’a permis de mettre en pratique mes compétences en développement fullstack tout en créant un outil concret et utile. Il combine organisation personnelle, technologie moderne et interface soignée.</p>
+                </div>
+            );
+        },
+    },
+
+    {
+        id: "projet_portailmmi",
+        category: "Developpement Web",
+        description: "Portail web pour visualiser mes projets universitaires",
+        title: "Portail MMI",
+        src: "projet_portailMmi.png",
+        cta: {
+            ctaIcon: <GlobeIcon />,
+            ctaText: "Voir le site",
+            ctaLink: "https://mmi23f03.mmi-troyes.fr",
+        },
+        badge: {
+            color: "yellow",
+        },
+        date: "2025-06-01",
+        avatars: [
+            {
+                src: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png",
+                label: "React",
+            },
+            {
+                src: "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+                label: "TailwindCSS",
+            },
+            {
+                src: "https://avatars.githubusercontent.com/u/67470890?s=200&v=4",
+                label: "Auth.js",
+            },
+            // prisma
+            {
+                src: "https://avatars.githubusercontent.com/u/17219288?s=200&v=4",
+                label: "Prisma",
+            },
+            // mongodb
+            {
+                src: "https://avatars.githubusercontent.com/u/45120?s=200&v=4",
+                label: "MongoDB",
+            },
+            // express
+            {
+                src: "https://avatars.githubusercontent.com/u/5658226?s=200&v=4",
+                label: "Express.js",
+            }
+        ],
+        content: () => {
+            return (
+                <div>
+                    <p>
+                        Dans le cadre de mon cursus universitaire, j'ai développé un portail web pour centraliser et présenter mes projets académiques. L'objectif principal était de créer une plateforme où je pourrais facilement visualiser et partager mes travaux réalisés au cours de ma formation.
+                    </p>
+                    <br/>
+                    <p>
+                        Pour ce projet, j'ai opté pour une architecture fullstack moderne, utilisant React pour le frontend et Express.js pour le backend. J'ai choisi MongoDB comme base de données, gérée via Prisma pour une manipulation efficace des données. L'authentification est assurée par Auth.js, permettant une gestion sécurisée des utilisateurs.
+                    </p>
+                    <br/>
+                    <p>
+                        Le portail est conçu pour être intuitif et facile à naviguer. Il permet aux utilisateurs de parcourir mes projets, de consulter les détails de chaque réalisation et de découvrir les technologies utilisées. Chaque projet est présenté avec une description, des captures d'écran et des liens vers les dépôts GitHub ou les sites web associés.
+                    </p>
+                </div>
+            );
+        },
+    },
+
+    {
         id: "projet_taskly",
         category: "Developpement Web",
         description: "Création d'une application pour gérer les devoirs à rendre",
@@ -284,70 +494,7 @@ export const cards = [
             );
         },
     },
-    {
-        id: "projet_design",
-        category: "Developpement Web",
-        description: "Site de ressources pour les étudiants (veille technologique, cours, etc.)",
-        title: "Ressources web",
-        src: "thumbProjets3.png",
-        cta: {
-            ctaIcon: <GlobeIcon />,
-            ctaText: "Voir le site",
-            ctaLink: "https://design.elouanb.fr",
-        },
-        badge: {
-            color: "yellow",
-        },
-        date: "2025-05-01",
-        avatars: [
-            {
-                src: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png",
-                label: "React",
-            },
-            {
-                src: "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
-                label: "TailwindCSS",
-            }
-        ],
-        content: () => {
-            return (
-                <div>
-                    <p>
-                        En tant que développeur, je passe beaucoup de temps à lire de la documentation, explorer des bibliothèques et m’inspirer d’autres sites. Chaque jour, je découvre de nouvelles ressources utiles que j’ai souvent envie de retrouver facilement.
-                    </p>
-                    <br/>
-                    <p>
-                        C’est pourquoi j’ai décidé de créer un site personnel qui me permet de répertorier tous les liens vers les outils, articles, documentations ou interfaces qui m’aident au quotidien. L’idée était de concevoir un espace centralisé, clair et évolutif, pensé d’abord pour mon usage, mais qui pourrait aussi servir à d’autres.
-                    </p>
-                    <br/>
-                    <p>
-                        Pour développer ce projet, j’ai utilisé des technologies actuelles et performantes : Nuxt.js, pour profiter de la puissance de Vue.js avec un framework structuré, Tailwind CSS, pour un design simple, responsive et rapide à mettre en place et Shadcn/ui, une bibliothèque de composants esthétiques et accessibles, parfaitement intégrée à Tailwind.
-                    </p>
-                    <br/>
-                    <p>
-                        J’ai également mis en place une authentification complète grâce à la bibliothèque Auth.js. Elle me permet de gérer les connexions utilisateur en toute sécurité.
-                        En plus du formulaire classique (email + mot de passe), j’ai activé l’OAuth avec GitHub, ce qui permet aux utilisateurs de se connecter plus rapidement avec leur compte GitHub.
-                    </p>
-                    <br/>
-                    <p>
-                        Côté base de données, j’utilise Prisma comme ORM, ce qui me permet de modéliser mes données de manière claire et typée tout en gardant une bonne productivité. Pour le stockage local, j’ai choisi SQLite, idéal pour un projet personnel ou en phase de développement. Cette combinaison me permet d’avoir un flux de données simple, efficace et facile à maintenir.
-                    </p>
-                    <br/>
-                    <p>
-                        Le site comporte :
-                    </p>
-                    <ul className="list-disc pl-6 mt-2">
-                        <li>Une page de liste qui affiche toutes les ressources enregistrées, avec leurs informations détaillées,</li>
-                        <li>Un panneau d’administration pour ajouter, modifier ou supprimer les liens et gérer l’ensemble des contenus,</li>
-                        <li>Une authentification sécurisée avec gestion des sessions,</li>
-                        <li>Une interface responsive, accessible depuis un ordinateur, une tablette ou un mobile.</li>
-                    </ul>
-                    <br/>
-                    <p>Ce projet m’a permis de mettre en pratique mes compétences en développement fullstack tout en créant un outil concret et utile. Il combine organisation personnelle, technologie moderne et interface soignée.</p>
-                </div>
-            );
-        },
-    },
+
     {
         id: "projet_sae105",
         category: "Developpement Web",

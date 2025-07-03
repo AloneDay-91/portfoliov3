@@ -25,3 +25,4 @@ dist-ssr
 
 testCapturePython/
 .htaccess
+node_modules/

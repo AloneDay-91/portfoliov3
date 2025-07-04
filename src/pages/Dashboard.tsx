@@ -20,6 +20,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { renderOverviewTab } from "@/components/OverviewRenderDashboard";
 import { SettingsRenderDashboard } from "@/components/SettingsRenderDashboard";
+import OverviewSiteStatus from "../components/OverviewSiteStatus";
+import NavigationManager from "../components/NavigationManager";
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -51,7 +53,7 @@ export default function Dashboard() {
         <section className="relative max-w-screen-2xl mx-auto border-l border-r w-full py-12 px-12 gap-8 min-h-screen">
           <div className="absolute inset-0 -z-10 h-auto min-h-full w-full dark:bg-[linear-gradient(to_right,#141414_1px,transparent_1px),linear-gradient(to_bottom,#141414_1px,transparent_1px)] bg-[linear-gradient(to_right,#f5f5f5_1px,transparent_1px),linear-gradient(to_bottom,#f5f5f5_1px,transparent_1px)] bg-[size:14px_24px]" />
           <Card variant="plus" className="bg-background mt-6">
-            <CardContent className="p-6">
+            <CardContent className="p-0">
               <div className="md:hidden mb-4">
                 <Select value={activeTab} onValueChange={setActiveTab}>
                   <SelectTrigger className="w-full">
@@ -68,6 +70,18 @@ export default function Dashboard() {
                       <div className="flex items-center gap-2">
                         <Pencil2Icon className="w-4 h-4" />
                         Paramètres
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="site-status">
+                      <div className="flex items-center gap-2">
+                        <BarChart3 className="w-4 h-4" />
+                        Statuts des sites
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="navigation">
+                      <div className="flex items-center gap-2">
+                        <BarChart3 className="w-4 h-4" />
+                        Navigation
                       </div>
                     </SelectItem>
                   </SelectContent>
@@ -94,6 +108,20 @@ export default function Dashboard() {
                       <Pencil2Icon className="w-4 h-4" />
                       Paramètres
                     </TabsTrigger>
+                    <TabsTrigger
+                      value="site-status"
+                      className="data-[state=active]:after:bg-primary relative rounded-none py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 data-[state=active]:bg-transparent data-[state=active]:shadow-none flex items-center gap-2"
+                    >
+                      <BarChart3 className="w-4 h-4" />
+                      Statuts des sites
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="navigation"
+                      className="data-[state=active]:after:bg-primary relative rounded-none py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 data-[state=active]:bg-transparent data-[state=active]:shadow-none flex items-center gap-2"
+                    >
+                      <BarChart3 className="w-4 h-4" />
+                      Navigation
+                    </TabsTrigger>
                   </TabsList>
                 </Tabs>
               </div>
@@ -105,6 +133,8 @@ export default function Dashboard() {
                   </div>
                 )}
                 {activeTab === "settings" && <SettingsRenderDashboard />}
+                {activeTab === "site-status" && <OverviewSiteStatus />}
+                {activeTab === "navigation" && <NavigationManager />}
               </div>
             </CardContent>
           </Card>

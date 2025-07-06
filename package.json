@@ -44,6 +44,7 @@
     "nodemailer": "^6.9.16",
     "ogl": "^1.0.11",
     "react": "^18.3.1",
+    "react-day-picker": "^9.8.0",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
     "react-icon-cloud": "^4.1.4",

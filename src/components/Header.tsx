@@ -74,9 +74,9 @@ const Header = () => {
         <div>
           {user && (
             <DropdownMenu>
-              <DropdownMenuTrigger asChild className="hidden md:block">
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <PersonIcon className="h-4 w-4" />
+              <DropdownMenuTrigger asChild className="hidden md:flex">
+                <Button variant="ghost" size="icon">
+                  <PersonIcon />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">

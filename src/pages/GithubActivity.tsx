@@ -30,7 +30,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { formatDistanceToNow } from "date-fns";
 import { fr } from "date-fns/locale";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import DecryptedText from "@/components/ui/TextAnimations/DecryptedText/DecryptedText";
 import { motion } from "framer-motion";
 
 interface GithubEvent {
@@ -260,24 +259,15 @@ export default function GithubActivity() {
           <section className="relative max-w-screen-2xl mx-auto border-l border-r w-full py-12 px-12 gap-8 min-h-screen">
             <div className="absolute inset-0 -z-10 h-auto min-h-full w-full dark:bg-[linear-gradient(to_right,#141414_1px,transparent_1px),linear-gradient(to_bottom,#141414_1px,transparent_1px)] bg-[linear-gradient(to_right,#f5f5f5_1px,transparent_1px),linear-gradient(to_bottom,#f5f5f5_1px,transparent_1px)] bg-[size:14px_24px]" />
             <div className="flex flex-col gap-2 text-left">
-              <h1 className="text-4xl md:text-4xl font-medium flex flex-col items-start">
-                <DecryptedText
-                  animateOn="view"
-                  revealDirection="start"
-                  speed={50}
-                  sequential={true}
-                  text="Activité GitHub"
-                />
-              </h1>
-              <p className="text-md md:text-xl text-left font-thin text-muted-foreground">
-                <DecryptedText
-                  animateOn="view"
-                  revealDirection="start"
-                  speed={50}
-                  sequential={true}
-                  text="Visualisez vos derniers événements publics et l'évolution de votre activité sur GitHub."
-                />
-              </p>
+              <div>
+                <h1 className="text-2xl md:text-3xl font-bold">
+                  Activité GitHub
+                </h1>
+                <p className="text-sm text-muted-foreground">
+                  Visualisez mes derniers événements publics et l'évolution de
+                  mon activité sur GitHub.
+                </p>
+              </div>
             </div>
             <Card variant="plus" className="bg-background mt-6">
               <CardContent className="p-0 md:p-6">

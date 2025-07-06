@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
+import { apiService, apiFetch } from "@/services/apiService";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -18,7 +19,6 @@ interface SiteHistory {
 }
 
 const HISTORY_LENGTH = 60;
-const API_URL = import.meta.env.VITE_API_URL;
 
 export default function SiteStatusCheckerPage() {
   const [histories, setHistories] = useState<SiteHistory[]>([]);
@@ -28,16 +28,10 @@ export default function SiteStatusCheckerPage() {
   const fetchHistory = async () => {
     setLoading(true);
     try {
-      const res = await fetch(API_URL);
-      const data = await res.json();
-      // data est un objet {url: {name, history, lastChecked}, ...}
+      const data = await apiFetch(apiService.getSiteStatus());
       setHistories(
-        Object.entries(data).map(([url, h]: [string, unknown]) => {
-          const obj = h as {
-            name?: string;
-            history?: Status[];
-            lastChecked?: string;
-          };
+        Object.entries(data).map(([url, h]) => {
+          const obj = h as Partial<SiteHistory>;
           return {
             url,
             name: obj?.name ?? url,
@@ -145,7 +139,7 @@ export default function SiteStatusCheckerPage() {
                                         ? "bg-red-500"
                                         : status === "online"
                                         ? "bg-green-400"
-                                        : "bg-neutral-700"
+                                        : "dark:bg-neutral-700 bg-neutral-200"
                                     }`}
                                   />
                                 );

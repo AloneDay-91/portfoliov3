@@ -22,6 +22,8 @@ import { renderOverviewTab } from "@/components/OverviewRenderDashboard";
 import { SettingsRenderDashboard } from "@/components/SettingsRenderDashboard";
 import OverviewSiteStatus from "../components/OverviewSiteStatus";
 import NavigationManager from "../components/NavigationManager";
+import OverviewResources from "../components/OverviewResources";
+import OverviewCards from "../components/OverviewCards";
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -84,6 +86,18 @@ export default function Dashboard() {
                         Navigation
                       </div>
                     </SelectItem>
+                    <SelectItem value="resources">
+                      <div className="flex items-center gap-2">
+                        <BarChart3 className="w-4 h-4" />
+                        Ressources
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="cards">
+                      <div className="flex items-center gap-2">
+                        <BarChart3 className="w-4 h-4" />
+                        Cartes
+                      </div>
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -122,6 +136,20 @@ export default function Dashboard() {
                       <BarChart3 className="w-4 h-4" />
                       Navigation
                     </TabsTrigger>
+                    <TabsTrigger
+                      value="resources"
+                      className="data-[state=active]:after:bg-primary relative rounded-none py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 data-[state=active]:bg-transparent data-[state=active]:shadow-none flex items-center gap-2"
+                    >
+                      <BarChart3 className="w-4 h-4" />
+                      Ressources
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="cards"
+                      className="data-[state=active]:after:bg-primary relative rounded-none py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 data-[state=active]:bg-transparent data-[state=active]:shadow-none flex items-center gap-2"
+                    >
+                      <BarChart3 className="w-4 h-4" />
+                      Cartes
+                    </TabsTrigger>
                   </TabsList>
                 </Tabs>
               </div>
@@ -135,6 +163,8 @@ export default function Dashboard() {
                 {activeTab === "settings" && <SettingsRenderDashboard />}
                 {activeTab === "site-status" && <OverviewSiteStatus />}
                 {activeTab === "navigation" && <NavigationManager />}
+                {activeTab === "resources" && <OverviewResources />}
+                {activeTab === "cards" && <OverviewCards />}
               </div>
             </CardContent>
           </Card>

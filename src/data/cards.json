@@ -1,0 +1,330 @@
+[
+  {
+    "category": "Developpement Web",
+    "description": "Création d'un blog WordPress pour le Comité Départemental de Tir de l'Essonne",
+    "title": "Blog WordPress CDTE",
+    "src": "projet_cdtev2.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://test.cdtiressonne.fr/",
+    "badgeColor": "yellow",
+    "date": "2024-11-01",
+    "avatars": [
+      {
+        "src": "https://avatars.githubusercontent.com/u/276006?s=200&v=4",
+        "label": "WordPress"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/47606894?s=200&v=4",
+        "label": "Elementor Pro"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Developpement Web",
+    "description": "Création d'un site d'inscriptions aux compétitions pour le Comité Départemental de Tir de l'Essonne",
+    "title": "Inscription compétitions CDTE",
+    "src": "projet_cdteresa.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://inscriptions.cdtiressonne.fr/",
+    "badgeColor": "yellow",
+    "date": "2024-11-01",
+    "avatars": [
+      {
+        "src": "https://avatars.githubusercontent.com/u/25158?s=200&v=4",
+        "label": "PHP"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+        "label": "TailwindCSS"
+      },
+      {
+        "src": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png",
+        "label": "JavaScript"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/2452804?s=200&v=4",
+        "label": "MySQL"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Developpement Web",
+    "description": "Création d'un blog WordPress pour le Club de Tir le Cercle de Tir de Montgeron",
+    "title": "Blog WordPress CTM",
+    "src": "projet_ctm.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://ctmontgeron.fr/",
+    "badgeColor": "yellow",
+    "date": "2018-12-01",
+    "avatars": [
+      {
+        "src": "https://avatars.githubusercontent.com/u/276006?s=200&v=4",
+        "label": "WordPress"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/47606894?s=200&v=4",
+        "label": "Elementor Pro"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Developpement Web",
+    "description": "Création d'un design system",
+    "title": "Lumen/UI",
+    "src": "projet_lumenui.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://design.elouanb.fr",
+    "badgeColor": "yellow",
+    "date": "2025-07-01",
+    "avatars": [
+      {
+        "src": "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+        "label": "TailwindCSS"
+      },
+      {
+        "src": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png",
+        "label": "React"
+      },
+      {
+        "src": "https://icon.icepanel.io/Technology/png-shadow-512/Next.js.png",
+        "label": "Next.js"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/208px-Markdown-mark.svg.png?20190322184628",
+        "label": "Markdown"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Developpement Web",
+    "description": "Collection de backgrounds pour les projets",
+    "title": "Background Collections",
+    "src": "projet_backgroundCollections.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://bg.elouanb.fr",
+    "badgeColor": "yellow",
+    "date": "2025-06-01",
+    "avatars": [
+      {
+        "src": "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+        "label": "TailwindCSS"
+      },
+      {
+        "src": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png",
+        "label": "React"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Developpement Web",
+    "description": "Site de ressources pour les étudiants (veille technologique, cours, etc.)",
+    "title": "Ressources web",
+    "src": "projet_ressource.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://elouanb.fr/ressources",
+    "badgeColor": "yellow",
+    "date": "2025-05-01",
+    "avatars": [
+      {
+        "src": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png",
+        "label": "React"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+        "label": "TailwindCSS"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Developpement Web",
+    "description": "Portail web pour visualiser mes projets universitaires",
+    "title": "Portail MMI",
+    "src": "projet_portailMmi.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://mmi23f03.mmi-troyes.fr",
+    "badgeColor": "yellow",
+    "date": "2025-06-01",
+    "avatars": [
+      {
+        "src": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png",
+        "label": "React"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+        "label": "TailwindCSS"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/67470890?s=200&v=4",
+        "label": "Auth.js"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/17219288?s=200&v=4",
+        "label": "Prisma"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/45120?s=200&v=4",
+        "label": "MongoDB"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/5658226?s=200&v=4",
+        "label": "Express.js"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Developpement Web",
+    "description": "Création d'une application pour gérer les devoirs à rendre",
+    "title": "Taskly",
+    "src": "projet_taskly.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://mmi23f03.sae401.ovh/",
+    "badgeColor": "yellow",
+    "date": "2025-03-01",
+    "avatars": [
+      {
+        "src": "https://avatars.githubusercontent.com/u/6128107?s=200&v=4",
+        "label": "Vuejs"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+        "label": "TailwindCSS"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/2452804?s=200&v=4",
+        "label": "MySQL"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/143937?s=200&v=4",
+        "label": "Symfony"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/13420081?s=200&v=4",
+        "label": "Api Platform"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/8755770?s=200&v=4",
+        "label": "JWT"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Developpement Web",
+    "description": "Projet scolaire sur le compositeur Hans Zimmer",
+    "title": "Site sur Hans Zimmer",
+    "src": "projet_sae105.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://mmi23f03.sae203.ovh/",
+    "badgeColor": "yellow",
+    "date": "2024-03-01",
+    "avatars": [
+      {
+        "src": "https://avatars.githubusercontent.com/u/25158?s=200&v=4",
+        "label": "PHP"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+        "label": "TailwindCSS"
+      },
+      {
+        "src": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png",
+        "label": "JavaScript"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/2452804?s=200&v=4",
+        "label": "MySQL"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Developpement Web",
+    "description": "Projet scolaire sur un site de co-jardinage",
+    "title": "Jard'Unis",
+    "src": "projet_jardunis.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://mmi23f03.sae202.ovh/",
+    "badgeColor": "yellow",
+    "date": "2024-05-01",
+    "avatars": [
+      {
+        "src": "https://avatars.githubusercontent.com/u/25158?s=200&v=4",
+        "label": "PHP"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+        "label": "TailwindCSS"
+      },
+      {
+        "src": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png",
+        "label": "JavaScript"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/2452804?s=200&v=4",
+        "label": "MySQL"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "DataViz",
+    "description": "Projet scolaire sur la DataViz des bornes de recharge électrique en France",
+    "title": "DataViz borne de recharge électrique",
+    "src": "thumbProjets1.png",
+    "ctaText": "Voir le site",
+    "ctaLink": "https://www.data.gouv.fr/fr/reuses/accessibilites-des-bornes-de-recharges-pour-voiture-electriques/",
+    "badgeColor": "yellow",
+    "date": "2024-10-01",
+    "avatars": [
+      {
+        "src": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png",
+        "label": "HTML"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/67109815?s=200&v=4",
+        "label": "TailwindCSS"
+      },
+      {
+        "src": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png",
+        "label": "JavaScript"
+      },
+      {
+        "src": "https://avatars.githubusercontent.com/u/2386673?s=200&v=4",
+        "label": "Gspap"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  },
+  {
+    "category": "Video",
+    "description": "Projet scolaire sur une publicité de parfum",
+    "title": "Publicité fictive",
+    "src": "thumbVideoPub.png",
+    "ctaText": "Voir la vidéo",
+    "ctaLink": "https://www.youtube.com/watch?v=SQ95lLbs2q0",
+    "badgeColor": "blue",
+    "date": "2025-01-01",
+    "avatars": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Epic_Games_logo.svg/882px-Epic_Games_logo.svg.png",
+        "label": "Unreal Engine 5"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/939px-Blender_logo_no_text.svg.png",
+        "label": "Blender"
+      },
+      {
+        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYHHwdRgN5BgsSjZKGQ_Ij5zpseo2DXl7OQ&s",
+        "label": "Adobe Premiere Pro"
+      }
+    ],
+    "content": "Texte ou markdown ici"
+  }
+]

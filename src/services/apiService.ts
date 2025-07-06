@@ -1,12 +1,9 @@
 // Service centralisé pour les appels API
-const getApiBaseUrl = () => {
-  // En développement, utiliser le proxy Vite
-  if (import.meta.env.DEV) {
-    return "/api";
-  }
+import Cookies from "js-cookie";
 
-  // En production, utiliser l'URL du backend Vercel
-  return "https://backend-portfolio-brown.vercel.app/api";
+const getApiBaseUrl = () => {
+  const base = import.meta.env.VITE_API_URL || "http://localhost:3001";
+  return `${base.replace(/\/$/, "")}/api`;
 };
 
 export const apiService = {
@@ -31,6 +28,15 @@ export const apiService = {
   deleteNavigation: (id: string) => `${getApiBaseUrl()}/navigation/${id}`,
   reorderNavigation: () => `${getApiBaseUrl()}/navigation/reorder`,
 
+  // Resources
+  getResources: () => `${getApiBaseUrl()}/resources`,
+  getResourcesByCategory: (category: string) =>
+    `${getApiBaseUrl()}/resources/category/${category}`,
+  addResource: () => `${getApiBaseUrl()}/resources`,
+  updateResource: (id: string) => `${getApiBaseUrl()}/resources/${id}`,
+  deleteResource: (id: string) => `${getApiBaseUrl()}/resources/${id}`,
+  reorderResources: () => `${getApiBaseUrl()}/resources/reorder`,
+
   // Auth
   login: () => `${getApiBaseUrl()}/login`,
   register: () => `${getApiBaseUrl()}/register`,
@@ -49,12 +55,30 @@ export const apiService = {
 // Fonction utilitaire pour les appels fetch avec gestion d'erreurs
 export const apiFetch = async (url: string, options?: RequestInit) => {
   try {
+    // Récupérer le token d'authentification
+    const token = Cookies.get("token");
+
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+
+    // Ajouter les headers personnalisés s'ils existent
+    if (options?.headers) {
+      Object.entries(options.headers).forEach(([key, value]) => {
+        if (typeof value === "string") {
+          headers[key] = value;
+        }
+      });
+    }
+
+    // Ajouter le token d'authentification si disponible
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+
     const response = await fetch(url, {
       ...options,
-      headers: {
-        "Content-Type": "application/json",
-        ...options?.headers,
-      },
+      headers,
     });
 
     if (!response.ok) {

@@ -102,12 +102,14 @@ export default function OverviewCards() {
     form.date ? formatDate(new Date(form.date)) : ""
   );
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   // Charger la liste des cartes
   const fetchCards = async () => {
     setLoading(true);
     setError(null);
     try {
-      const data = await apiFetch("/api/cards");
+      const data = await apiFetch(apiUrl + "/api/cards");
       setCards(data);
     } catch {
       setError("Erreur lors du chargement des cartes");
@@ -181,7 +183,9 @@ export default function OverviewCards() {
     const { _id, ...formSansId } = cleanForm;
     try {
       const method = editingCard ? "PUT" : "POST";
-      const url = editingCard ? `/api/cards/${editingCard._id}` : "/api/cards";
+      const url = editingCard
+        ? apiUrl + `/api/cards/${editingCard._id}`
+        : apiUrl + "/api/cards";
       await apiFetch(url, {
         method,
         body: JSON.stringify(formSansId),
@@ -199,7 +203,7 @@ export default function OverviewCards() {
   const handleDelete = async (card: CardType) => {
     setActionLoading(true);
     try {
-      await apiFetch(`/api/cards/${card._id}`, { method: "DELETE" });
+      await apiFetch(apiUrl + `/api/cards/${card._id}`, { method: "DELETE" });
       await fetchCards();
       toast.success("Carte supprimée");
     } catch {

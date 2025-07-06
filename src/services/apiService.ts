@@ -45,6 +45,13 @@ export const apiService = {
   // Config
   getConfig: () => `${getApiBaseUrl()}/config`,
 
+  // Cards (Projets)
+  getCards: () => `${getApiBaseUrl()}/cards`,
+  getCard: (id: string) => `${getApiBaseUrl()}/cards/${id}`,
+  addCard: () => `${getApiBaseUrl()}/cards`,
+  updateCard: (id: string) => `${getApiBaseUrl()}/cards/${id}`,
+  deleteCard: (id: string) => `${getApiBaseUrl()}/cards/${id}`,
+
   // Test routes
   test: () => `${getApiBaseUrl()}/test`,
   testPrisma: () => `${getApiBaseUrl()}/test-prisma`,

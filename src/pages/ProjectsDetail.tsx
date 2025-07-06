@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowLeftIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge.tsx";
 import { AvatarGroup } from "@/components/ui/avatar-group.tsx";
+import { apiService, apiFetch } from "@/services/apiService";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -44,7 +45,20 @@ function ProjectDetailSkeleton() {
 
 export default function ProjectDetail() {
   const { id } = useParams();
-  const [project, setProject] = useState<any | null>(null);
+  const [project, setProject] = useState<{
+    _id?: string;
+    id?: string;
+    title: string;
+    description: string;
+    src: string;
+    date?: string;
+    content?: string;
+    category?: string;
+    badgeColor?: string;
+    avatars?: Array<{ src: string; label: string }>;
+    ctaLink?: string;
+    ctaText?: string;
+  } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -54,15 +68,14 @@ export default function ProjectDetail() {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(`/api/cards/${id}`);
-        if (!res.ok) throw new Error("Projet introuvable");
-        const data = await res.json();
+        const data = await apiFetch(apiService.getCard(id!));
         // On attend au moins 800ms avant d'afficher le projet
         timeout = setTimeout(() => {
           setProject(data);
           setLoading(false);
         }, 800);
-      } catch (e) {
+      } catch (error) {
+        console.error("Erreur lors du chargement du projet:", error);
         setError("Projet introuvable");
         setLoading(false);
       }

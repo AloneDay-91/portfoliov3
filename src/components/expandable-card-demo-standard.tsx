@@ -4,12 +4,29 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 // import { cards } from "@/data/cards"; // supprimé
 import { useNavigate } from "react-router-dom";
+import { apiService, apiFetch } from "@/services/apiService";
+
+type CardData = {
+  _id?: string;
+  id?: string;
+  title: string;
+  description: string;
+  src: string;
+  date?: string;
+  content?: string | (() => JSX.Element);
+  cta?: {
+    ctaLink: string;
+    ctaText: string;
+  };
+  ctaLink?: string;
+  ctaText?: string;
+};
 
 export default function ExpandableCardDemoStandard() {
-  const [cards, setCards] = useState<any[]>([]);
+  const [cards, setCards] = useState<CardData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [active, setActive] = useState<any | boolean | null>(null);
+  const [active, setActive] = useState<CardData | boolean | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
   const navigate = useNavigate();
@@ -20,15 +37,14 @@ export default function ExpandableCardDemoStandard() {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch("/api/cards");
-        if (!res.ok) throw new Error("Erreur API");
-        const data = await res.json();
+        const data = await apiFetch(apiService.getCards());
         // On attend au moins 800ms avant d'afficher les projets
         timeout = setTimeout(() => {
           setCards(data);
           setLoading(false);
         }, 800);
-      } catch (e) {
+      } catch (error) {
+        console.error("Erreur lors du chargement des projets:", error);
         setError("Erreur lors du chargement des projets");
         setLoading(false);
       }
@@ -149,11 +165,11 @@ export default function ExpandableCardDemoStandard() {
 
                   <motion.a
                     layoutId={`button-${active.title}-${id}`}
-                    href={active.cta.ctaLink}
+                    href={active.ctaLink}
                     target="_blank"
                     className="px-4 py-3 text-sm rounded-lg font-normal text-muted-foreground border"
                   >
-                    {active.cta.ctaText}
+                    {active.ctaText}
                   </motion.a>
                 </div>
                 <div className="pt-4 relative px-4">

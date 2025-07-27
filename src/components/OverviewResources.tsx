@@ -62,6 +62,8 @@ export default function OverviewResources() {
   const [actionLoading, setActionLoading] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState<Resource | null>(null);
   const activeId = useId();
+  // Dans le composant OverviewResources, ajoutez :
+  const [imageLoading, setImageLoading] = useState<Record<string, boolean>>({});
 
   // Charger la liste des ressources
   const fetchResources = async () => {
@@ -69,22 +71,30 @@ export default function OverviewResources() {
     setError(null);
     try {
       const data = await apiFetch(apiService.getResources());
-      // data = { id: { nom, url, nb_components, image, category, active, order }, ... }
-      setResources(
-        Object.entries(data).map(([id, r]) => {
-          const resource = r as Partial<Resource>;
-          return {
-            _id: id,
-            nom: resource.nom || "",
-            url: resource.url || "",
-            nb_components: resource.nb_components || "1",
-            image: resource.image || "",
-            category: resource.category || "",
-            active: resource.active !== undefined ? resource.active : true,
-            order: resource.order || 0,
-          };
-        })
-      );
+      const resourcesList = Object.entries(data).map(([id, r]) => {
+        const resource = r as Partial<Resource>;
+        return {
+          _id: id,
+          nom: resource.nom || "",
+          url: resource.url || "",
+          nb_components: resource.nb_components || "1",
+          image: resource.image || "",
+          category: resource.category || "",
+          active: resource.active !== undefined ? resource.active : true,
+          order: resource.order || 0,
+        };
+      });
+
+      // Initialiser l'état de chargement pour chaque image
+      const initialLoadingState = resourcesList.reduce((acc, resource) => {
+        if (resource.image) {
+          acc[resource._id!] = true; // true signifie que l'image est en cours de chargement
+        }
+        return acc;
+      }, {} as Record<string, boolean>);
+
+      setImageLoading(initialLoadingState);
+      setResources(resourcesList);
     } catch {
       setError("Erreur lors du chargement des ressources");
     }
@@ -190,6 +200,23 @@ export default function OverviewResources() {
     setConfirmDelete(null);
   };
 
+  const handleImageLoad = (resourceId: string) => {
+    setImageLoading((prev) => ({
+      ...prev,
+      [resourceId]: false, // Image chargée
+    }));
+  };
+
+  const handleImageError = (resourceId: string) => {
+    setImageLoading((prev) => ({
+      ...prev,
+      [resourceId]: false, // En cas d'erreur, on arrête le chargement
+    }));
+    console.error(
+      `Erreur de chargement de l'image pour la ressource ${resourceId}`
+    );
+  };
+
   // Grouper par catégorie
   const groupedResources = resources.reduce((acc, resource) => {
     if (!acc[resource.category]) {
@@ -240,13 +267,25 @@ export default function OverviewResources() {
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-lg overflow-hidden bg-muted">
+                        <div className="w-12 h-12 rounded-lg overflow-hidden bg-muted relative">
                           {resource.image && (
-                            <img
-                              src={resource.image}
-                              alt={resource.nom}
-                              className="w-full h-full object-cover"
-                            />
+                            <>
+                              {imageLoading[resource._id!] && (
+                                <Skeleton className="w-full h-full absolute inset-0" />
+                              )}
+                              <img
+                                src={resource.image}
+                                alt={resource.nom}
+                                className={`w-full h-full object-cover transition-opacity duration-300 ${
+                                  imageLoading[resource._id!]
+                                    ? "opacity-0"
+                                    : "opacity-100"
+                                }`}
+                                onLoad={() => handleImageLoad(resource._id!)}
+                                onError={() => handleImageError(resource._id!)}
+                                loading="lazy"
+                              />
+                            </>
                           )}
                         </div>
                         <div>
@@ -350,15 +389,31 @@ export default function OverviewResources() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="image">Image</Label>
+                <Label htmlFor="image">URL de l'image</Label>
                 <Input
                   id="image"
                   name="image"
                   value={form.image}
                   onChange={handleChange}
+                  placeholder="https://exemple.com/image.jpg"
                 />
               </div>
             </div>
+            {form.image && (
+              <div className="mt-2 border rounded-md p-2">
+                <p className="text-sm text-muted-foreground mb-2">Aperçu :</p>
+                <div className="relative w-full h-40 rounded-md overflow-hidden">
+                  <img
+                    src={form.image}
+                    alt="Aperçu"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                </div>
+              </div>
+            )}
             <div className="flex items-center space-x-2">
               <Checkbox
                 id={activeId}

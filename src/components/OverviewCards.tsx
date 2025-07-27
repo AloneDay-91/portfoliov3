@@ -101,6 +101,8 @@ export default function OverviewCards() {
   const [dateValue, setDateValue] = React.useState(
     form.date ? formatDate(new Date(form.date)) : ""
   );
+  // Ajoutez ceci avec les autres états
+  const [imageLoading, setImageLoading] = useState<Record<string, boolean>>({});
 
   const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -111,10 +113,38 @@ export default function OverviewCards() {
     try {
       const data = await apiFetch(apiUrl + "/api/cards");
       setCards(data);
+
+      // Initialiser l'état de chargement des images
+      const initialLoadingState = data.reduce(
+        (acc: Record<string, boolean>, card: CardType) => {
+          if (card.src) {
+            acc[card._id!] = true;
+          }
+          return acc;
+        },
+        {}
+      );
+
+      setImageLoading(initialLoadingState);
     } catch {
       setError("Erreur lors du chargement des cartes");
     }
     setLoading(false);
+  };
+
+  const handleImageLoad = (cardId: string) => {
+    setImageLoading((prev) => ({
+      ...prev,
+      [cardId]: false,
+    }));
+  };
+
+  const handleImageError = (cardId: string) => {
+    setImageLoading((prev) => ({
+      ...prev,
+      [cardId]: false,
+    }));
+    console.error(`Erreur de chargement de l'image pour la carte ${cardId}`);
   };
 
   useEffect(() => {
@@ -164,7 +194,21 @@ export default function OverviewCards() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+
+    // Si c'est le champ src, on ne modifie pas la valeur
+    if (name === "src") {
+      setForm((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+      return;
+    }
+
+    // Pour les autres champs, comportement normal
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   // Ajouter ou éditer une carte
@@ -220,6 +264,16 @@ export default function OverviewCards() {
   const [customCategory, setCustomCategory] = useState("");
   const isOtherCategory = form.category === "__other__";
 
+  const formatImageUrl = (url: string) => {
+    if (!url) return "";
+    // Si l'URL commence par http:// ou https://, on la retourne telle quelle
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      return url;
+    }
+    // Sinon, on ajoute un slash au début
+    return `/${url.replace(/^\//, "")}`;
+  };
+
   return (
     <UICard className="w-full">
       <div className="flex flex-col gap-2 md:flex-row justify-between items-start md:items-center mb-4">
@@ -253,13 +307,23 @@ export default function OverviewCards() {
               className="flex items-center justify-between p-3 border rounded-lg hover:bg-accent/30 transition-all duration-200"
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-lg overflow-hidden bg-muted">
+                <div className="w-12 h-12 rounded-lg overflow-hidden bg-muted relative">
                   {card.src && (
-                    <img
-                      src={card.src}
-                      alt={card.title}
-                      className="w-full h-full object-cover"
-                    />
+                    <>
+                      {imageLoading[card._id!] && (
+                        <Skeleton className="w-full h-full absolute inset-0" />
+                      )}
+                      <img
+                        src={formatImageUrl(card.src)}
+                        alt={card.title}
+                        className={`w-full h-full object-cover transition-opacity duration-300 ${
+                          imageLoading[card._id!] ? "opacity-0" : "opacity-100"
+                        }`}
+                        onLoad={() => handleImageLoad(card._id!)}
+                        onError={() => handleImageError(card._id!)}
+                        loading="lazy"
+                      />
+                    </>
                   )}
                 </div>
                 <div>
@@ -396,7 +460,8 @@ export default function OverviewCards() {
               name="src"
               value={form.src}
               onChange={handleChange}
-              placeholder="Image (URL)"
+              placeholder="URL de l'image (ex: /images/photo.jpg ou https://example.com/image.jpg)"
+              className="w-full"
             />
             <Input
               name="ctaText"
@@ -491,6 +556,21 @@ export default function OverviewCards() {
               placeholder="Contenu détaillé (markdown ou texte)"
               className="w-full border rounded p-2"
             />
+            {form.src && (
+              <div className="mt-2 border rounded-md p-2">
+                <p className="text-sm text-muted-foreground mb-2">Aperçu :</p>
+                <div className="relative w-full h-40 rounded-md overflow-hidden">
+                  <img
+                    src={formatImageUrl(form.src)}
+                    alt="Aperçu"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                </div>
+              </div>
+            )}
             <div className="flex justify-end gap-2">
               <Button
                 type="button"

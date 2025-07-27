@@ -14,6 +14,16 @@ const pageVariants = {
   exit: { opacity: 0, y: -20 },
 };
 
+const formatImageUrl = (url: string) => {
+  if (!url) return "";
+  // Si l'URL commence par http:// ou https://, on la retourne telle quelle
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url;
+  }
+  // Sinon, on ajoute un slash au début en s'assurant de ne pas en avoir deux
+  return `/${url.replace(/^\//, "")}`;
+};
+
 // Skeleton pour la page détail projet
 function ProjectDetailSkeleton() {
   return (
@@ -44,6 +54,7 @@ function ProjectDetailSkeleton() {
 }
 
 export default function ProjectDetail() {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const { id } = useParams();
   const [project, setProject] = useState<{
     _id?: string;
@@ -211,14 +222,25 @@ export default function ProjectDetail() {
                 </div>
               </div>
               <div className="flex flex-col items-center w-full border border-muted-foreground/20 rounded-lg bg-muted p-4">
+                {!imageLoaded && (
+                  <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
+                    <span className="text-muted-foreground">
+                      Chargement de l'image...
+                    </span>
+                  </div>
+                )}
                 <img
-                  src={
-                    project.src?.startsWith("/")
-                      ? project.src
-                      : "/" + project.src
-                  }
+                  src={formatImageUrl(project.src)}
                   alt={project.title}
-                  className="w-full rounded-lg"
+                  className={`w-full rounded-lg ${
+                    !imageLoaded ? "hidden" : ""
+                  }`}
+                  onLoad={() => setImageLoaded(true)}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = "none";
+                    setImageLoaded(false);
+                  }}
                 />
               </div>
               <div
@@ -226,13 +248,19 @@ export default function ProjectDetail() {
                 dangerouslySetInnerHTML={{ __html: project.content || "" }}
               />
               <div>
-                <Button variant="outline" asChild>
-                  <a href={project.ctaLink}>
-                    <span className="flex items-center gap-2">
-                      {project.ctaText}
-                    </span>
-                  </a>
-                </Button>
+                {project.ctaLink && (
+                  <Button variant="outline" asChild>
+                    <a
+                      href={project.ctaLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="flex items-center gap-2">
+                        {project.ctaText || "Voir le projet"}
+                      </span>
+                    </a>
+                  </Button>
+                )}
               </div>
             </div>
           </section>
